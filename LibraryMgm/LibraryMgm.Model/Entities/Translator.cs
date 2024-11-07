@@ -15,6 +15,7 @@ namespace LibraryMgm.Model.Entities
         [MaxLength(32, ErrorMessage = "نام خانوادگی ناید از 32 کاراکتر بیشتر باشد")]
         public string LastName { get; set; }
 
+        [MaxLength(128, ErrorMessage = "نام زندگی نباید بیشتر از 128 کاراکتر باشد")]
         public string Location { get; set; }
     }
 }

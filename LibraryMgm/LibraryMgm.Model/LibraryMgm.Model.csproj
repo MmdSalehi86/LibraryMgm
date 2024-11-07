@@ -40,13 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookModel\InsertBookModel.cs" />
     <Compile Include="Validations\BaseValidation.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Validations\BookListValidationAttribute.cs" />
-    <Compile Include="Entities\BookLoan.cs" />
     <Compile Include="Entities\Translator.cs" />
     <Compile Include="Validations\MobileValidationAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
