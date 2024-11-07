@@ -56,18 +56,6 @@
     <Compile Include="FrmBook.Designer.cs">
       <DependentUpon>FrmBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBookLoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBookLoan.Designer.cs">
-      <DependentUpon>FrmBookLoan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCustomer.Designer.cs">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmORM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,12 +78,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBook.resx">
       <DependentUpon>FrmBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmBookLoan.resx">
-      <DependentUpon>FrmBookLoan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCustomer.resx">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmORM.resx">
       <DependentUpon>FrmORM.cs</DependentUpon>
