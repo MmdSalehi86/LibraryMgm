@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookModel\BookVM.cs" />
     <Compile Include="BookModel\InsertBookModel.cs" />
     <Compile Include="Validations\BaseValidation.cs" />
     <Compile Include="Entities\Book.cs" />
