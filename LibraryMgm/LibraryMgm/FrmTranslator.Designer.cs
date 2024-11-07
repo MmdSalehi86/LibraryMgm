@@ -116,6 +116,7 @@
             // 
             this.lblToast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblToast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblToast.Location = new System.Drawing.Point(12, 213);
             this.lblToast.Name = "lblToast";
             this.lblToast.Size = new System.Drawing.Size(477, 32);
@@ -150,6 +151,7 @@
             this.ColRowNum.MinimumWidth = 100;
             this.ColRowNum.Name = "ColRowNum";
             this.ColRowNum.ReadOnly = true;
+            this.ColRowNum.Width = 125;
             // 
             // colFullName
             // 

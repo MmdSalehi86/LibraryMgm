@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.colRowNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBooks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblToast = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,11 +42,6 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.chListBooks = new System.Windows.Forms.CheckedListBox();
             this.labe3 = new System.Windows.Forms.Label();
-            this.colRowNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBooks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +69,50 @@
             this.dgv.Size = new System.Drawing.Size(611, 241);
             this.dgv.TabIndex = 14;
             // 
+            // colRowNum
+            // 
+            this.colRowNum.HeaderText = "ردیف";
+            this.colRowNum.MinimumWidth = 80;
+            this.colRowNum.Name = "colRowNum";
+            this.colRowNum.ReadOnly = true;
+            this.colRowNum.Width = 125;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "نام";
+            this.colName.MinimumWidth = 100;
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 150;
+            // 
+            // colMobile
+            // 
+            this.colMobile.DataPropertyName = "Mobile";
+            this.colMobile.HeaderText = "موبایل";
+            this.colMobile.MinimumWidth = 100;
+            this.colMobile.Name = "colMobile";
+            this.colMobile.ReadOnly = true;
+            this.colMobile.Width = 150;
+            // 
+            // colBooks
+            // 
+            this.colBooks.DataPropertyName = "BookNames";
+            this.colBooks.HeaderText = "کتاب ها";
+            this.colBooks.MinimumWidth = 150;
+            this.colBooks.Name = "colBooks";
+            this.colBooks.ReadOnly = true;
+            this.colBooks.Width = 170;
+            // 
+            // colId
+            // 
+            this.colId.HeaderText = "Id";
+            this.colId.MinimumWidth = 6;
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            this.colId.Width = 125;
+            // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -84,6 +128,7 @@
             // 
             this.lblToast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblToast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblToast.Location = new System.Drawing.Point(12, 223);
             this.lblToast.Name = "lblToast";
             this.lblToast.Size = new System.Drawing.Size(590, 32);
@@ -146,49 +191,6 @@
             this.labe3.Size = new System.Drawing.Size(63, 25);
             this.labe3.TabIndex = 10;
             this.labe3.Text = "کتاب ها";
-            // 
-            // colRowNum
-            // 
-            this.colRowNum.HeaderText = "ردیف";
-            this.colRowNum.MinimumWidth = 80;
-            this.colRowNum.Name = "colRowNum";
-            this.colRowNum.ReadOnly = true;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "نام";
-            this.colName.MinimumWidth = 100;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 150;
-            // 
-            // colMobile
-            // 
-            this.colMobile.DataPropertyName = "Mobile";
-            this.colMobile.HeaderText = "موبایل";
-            this.colMobile.MinimumWidth = 100;
-            this.colMobile.Name = "colMobile";
-            this.colMobile.ReadOnly = true;
-            this.colMobile.Width = 150;
-            // 
-            // colBooks
-            // 
-            this.colBooks.DataPropertyName = "BookNames";
-            this.colBooks.HeaderText = "کتاب ها";
-            this.colBooks.MinimumWidth = 150;
-            this.colBooks.Name = "colBooks";
-            this.colBooks.ReadOnly = true;
-            this.colBooks.Width = 170;
-            // 
-            // colId
-            // 
-            this.colId.HeaderText = "Id";
-            this.colId.MinimumWidth = 6;
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Visible = false;
-            this.colId.Width = 125;
             // 
             // FrmBookLoan
             // 

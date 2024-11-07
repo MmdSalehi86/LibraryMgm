@@ -36,15 +36,15 @@
             this.txtYear = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.lblToast = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbTranslator = new System.Windows.Forms.ComboBox();
             this.colRowNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPublisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTranslator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblToast = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbTranslator = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,43 +140,13 @@
             this.dgv.Size = new System.Drawing.Size(618, 241);
             this.dgv.TabIndex = 4;
             // 
-            // lblToast
-            // 
-            this.lblToast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblToast.Location = new System.Drawing.Point(12, 236);
-            this.lblToast.Name = "lblToast";
-            this.lblToast.Size = new System.Drawing.Size(594, 32);
-            this.lblToast.TabIndex = 8;
-            this.lblToast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(407, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 25);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "مترجم";
-            // 
-            // cmbTranslator
-            // 
-            this.cmbTranslator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbTranslator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTranslator.FormattingEnabled = true;
-            this.cmbTranslator.Location = new System.Drawing.Point(240, 128);
-            this.cmbTranslator.Name = "cmbTranslator";
-            this.cmbTranslator.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbTranslator.Size = new System.Drawing.Size(153, 33);
-            this.cmbTranslator.TabIndex = 13;
-            // 
             // colRowNum
             // 
             this.colRowNum.HeaderText = "ردیف";
             this.colRowNum.MinimumWidth = 100;
             this.colRowNum.Name = "colRowNum";
             this.colRowNum.ReadOnly = true;
+            this.colRowNum.Width = 125;
             // 
             // colName
             // 
@@ -223,6 +193,38 @@
             this.colId.ReadOnly = true;
             this.colId.Visible = false;
             this.colId.Width = 125;
+            // 
+            // lblToast
+            // 
+            this.lblToast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblToast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblToast.Location = new System.Drawing.Point(12, 236);
+            this.lblToast.Name = "lblToast";
+            this.lblToast.Size = new System.Drawing.Size(594, 32);
+            this.lblToast.TabIndex = 8;
+            this.lblToast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(407, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 25);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "مترجم";
+            // 
+            // cmbTranslator
+            // 
+            this.cmbTranslator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTranslator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTranslator.FormattingEnabled = true;
+            this.cmbTranslator.Location = new System.Drawing.Point(240, 128);
+            this.cmbTranslator.Name = "cmbTranslator";
+            this.cmbTranslator.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cmbTranslator.Size = new System.Drawing.Size(153, 33);
+            this.cmbTranslator.TabIndex = 13;
             // 
             // FrmBook
             // 
