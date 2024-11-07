@@ -18,10 +18,5 @@ namespace LibraryMgm
         {
             new FrmBook().ShowDialog();
         }
-
-        private void btnBookLoan_Click(object sender, System.EventArgs e)
-        {
-            new FrmBookLoan().ShowDialog();
-        }
     }
 }
