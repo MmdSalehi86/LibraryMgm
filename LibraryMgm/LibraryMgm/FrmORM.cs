@@ -1,5 +1,4 @@
-﻿using LibraryMgm.Tools;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace LibraryMgm
@@ -20,10 +19,10 @@ namespace LibraryMgm
             }
             else
             {
-                if (cmbORM.SelectedIndex == 0)
-                    Session.IsADO = true;
-                else
-                    Session.IsADO = false;
+                //if (cmbORM.SelectedIndex == 0)
+                    //Session.IsADO = true;
+                //else
+                    //Session.IsADO = false;
                 new FrmMain().ShowDialog();
             }
         }
