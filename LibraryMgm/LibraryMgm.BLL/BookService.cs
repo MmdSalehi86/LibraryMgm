@@ -1,10 +1,11 @@
-﻿using LibraryMgm.Model.Entities;
+﻿using LibraryMgm.Model.BookModel;
+using LibraryMgm.Model.Entities;
 
 namespace LibraryMgm.BLL
 {
     public class BookService
     {
-        public OperationResult Insert(Book book)
+        public OperationResult Insert(InsertBookModel book)
         {
             return new OperationResult();
         }
@@ -14,14 +15,14 @@ namespace LibraryMgm.BLL
             return new OperationResult();
         }
 
-        public OperationResult Delete()
+        public OperationResult Delete(int id)
         {
             return new OperationResult();
         }
 
-        public OperationResult Select()
+        public OperationResult<BookVM> Select()
         {
-            return new OperationResult();
+            return new OperationResult<BookVM>();
         }
     }
 }
