@@ -8,5 +8,20 @@ namespace LibraryMgm
         {
             InitializeComponent();
         }
+
+        private void btnAddTranslator_Click(object sender, System.EventArgs e)
+        {
+            new FrmTranslator().ShowDialog();
+        }
+
+        private void btnAddBook_Click(object sender, System.EventArgs e)
+        {
+            new FrmBook().ShowDialog();
+        }
+
+        private void btnBookLoan_Click(object sender, System.EventArgs e)
+        {
+            new FrmBookLoan().ShowDialog();
+        }
     }
 }

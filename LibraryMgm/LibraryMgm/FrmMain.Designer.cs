@@ -43,6 +43,7 @@
             this.btnAddBook.TabIndex = 1;
             this.btnAddBook.Text = "ثبت کتاب";
             this.btnAddBook.UseVisualStyleBackColor = true;
+            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
             // 
             // btnAddTranslator
             // 
@@ -54,6 +55,7 @@
             this.btnAddTranslator.TabIndex = 1;
             this.btnAddTranslator.Text = "ثبت مترجم";
             this.btnAddTranslator.UseVisualStyleBackColor = true;
+            this.btnAddTranslator.Click += new System.EventHandler(this.btnAddTranslator_Click);
             // 
             // btnBookLoan
             // 
@@ -65,6 +67,7 @@
             this.btnBookLoan.TabIndex = 1;
             this.btnBookLoan.Text = "ثبت امانت";
             this.btnBookLoan.UseVisualStyleBackColor = true;
+            this.btnBookLoan.Click += new System.EventHandler(this.btnBookLoan_Click);
             // 
             // FrmMain
             // 
