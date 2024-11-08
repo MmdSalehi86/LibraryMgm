@@ -14,6 +14,7 @@ namespace LibraryMgm.Model.BookModel
         public int Year { get; set; }
 
         [Required(ErrorMessage = "وارد کردن ناشر اجباری است")]
+        [MaxLength(128, ErrorMessage = "نام ناشر نباید بیشتر از 128 کاراکتر باشد")]
         public string Publisher { get; set; }
 
         [RegularExpression(@"^\d*[1-9]\d*$", ErrorMessage = "انتخاب مترجم اجباری است")]
