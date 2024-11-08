@@ -42,6 +42,7 @@
     <Compile Include="BookService.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TranslatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryMgm.Model\LibraryMgm.Model.csproj">
