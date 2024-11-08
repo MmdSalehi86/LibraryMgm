@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -17,11 +18,14 @@ namespace LibraryMgm.Model.Conversion
 
             foreach (var prop in props)
             {
-                //foreach (var value in prop.CustomAttributes.Any())
+                var notMap = prop.CustomAttributes.Any(a => a.AttributeType.Name == nameof(NotMappedAttribute));
+                if (notMap)
+                    continue;
+                try
                 {
-                    prop.CustomAttributes.Any((a) => { return a.AttributeType.Name == "cc"; });
-                    //if (prop.Attributes. == null) ;
+                    prop.SetValue(vm, reader[prop.Name]);
                 }
+                catch { }
             }
 
             return vm;
