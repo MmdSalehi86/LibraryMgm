@@ -62,12 +62,12 @@ namespace LibraryMgm.DataAccess.ADO
                 cmd.CommandText = proc;
                 cmd.CommandType = CommandType.StoredProcedure;
                 result = cmd.ExecuteReader();
-                cmd.Connection.Close();
+                //cmd.Connection.Close();
             }
             return result;
         }
 
-        protected T ExecScalarFunc<T>(string funcName, SqlParameter[] ps = null)
+        protected T ExcScalarFunc<T>(string funcName, SqlParameter[] ps = null)
         {
             SqlCommand cmd = new SqlCommand();
             string commandText = "select " + funcName + "(";
@@ -91,7 +91,7 @@ namespace LibraryMgm.DataAccess.ADO
             return result;
         }
 
-        protected SqlDataReader ExecReaderFunc<T>(string funcName, SqlParameter[] ps = null)
+        protected SqlDataReader ExcReaderFunc<T>(string funcName, SqlParameter[] ps = null)
         {
             SqlCommand cmd = new SqlCommand();
             string commandText = "select " + funcName + "(";
@@ -110,7 +110,58 @@ namespace LibraryMgm.DataAccess.ADO
                 commandText += ")";
                 cmd.CommandText = commandText;
                 result = cmd.ExecuteReader();
+                //cmd.Connection.Close();
+            }
+            return result;
+        }
+
+        protected int ExcNonQuerySql(string proc, SqlParameter[] ps = null)
+        {
+            SqlCommand cmd = new SqlCommand();
+            if (ps != null)
+                foreach (var p in ps)
+                    cmd.Parameters.Add(p);
+
+            int result;
+            using (cmd.Connection = ConnectToDb())
+            {
+                cmd.CommandText = proc;
+                result = cmd.ExecuteNonQuery();
                 cmd.Connection.Close();
+            }
+            return result;
+        }
+
+        protected T ExcScalarSql<T>(string proc, SqlParameter[] ps = null)
+        {
+            SqlCommand cmd = new SqlCommand();
+            if (ps != null)
+                foreach (var p in ps)
+                    cmd.Parameters.Add(p);
+
+            T result;
+            using (cmd.Connection = ConnectToDb())
+            {
+                cmd.CommandText = proc;
+                result = (T)cmd.ExecuteScalar();
+                cmd.Connection.Close();
+            }
+            return result;
+        }
+
+        protected SqlDataReader ExcReaderSql(string proc, SqlParameter[] ps = null)
+        {
+            SqlCommand cmd = new SqlCommand();
+            if (ps != null)
+                foreach (var p in ps)
+                    cmd.Parameters.Add(p);
+
+            SqlDataReader result;
+            using (cmd.Connection = ConnectToDb())
+            {
+                cmd.CommandText = proc;
+                result = cmd.ExecuteReader();
+                //cmd.Connection.Close();
             }
             return result;
         }
