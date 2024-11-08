@@ -13,7 +13,7 @@ namespace LibraryMgm.DataAccess.ADO
             return con;
         }
 
-        protected int ExcNonQueryProc(string proc, SqlParameter[] ps = null)
+        protected int ExcNonQueryProc(string proc, params SqlParameter[] ps)
         {
             SqlCommand cmd = new SqlCommand();
             if (ps != null)
@@ -31,7 +31,7 @@ namespace LibraryMgm.DataAccess.ADO
             return result;
         }
 
-        protected T ExcScalarProc<T>(string proc, SqlParameter[] ps = null)
+        protected T ExcScalarProc<T>(string proc, params SqlParameter[] ps)
         {
             SqlCommand cmd = new SqlCommand();
             if (ps != null)
@@ -49,7 +49,7 @@ namespace LibraryMgm.DataAccess.ADO
             return result;
         }
 
-        protected SqlDataReader ExcReaderProc(string proc, SqlParameter[] ps = null)
+        protected SqlDataReader ExcReaderProc(string proc, params SqlParameter[] ps)
         {
             SqlCommand cmd = new SqlCommand();
             if (ps != null)
@@ -67,7 +67,7 @@ namespace LibraryMgm.DataAccess.ADO
             return result;
         }
 
-        protected T ExcScalarFunc<T>(string funcName, SqlParameter[] ps = null)
+        protected T ExcScalarFunc<T>(string funcName, params SqlParameter[] ps)
         {
             SqlCommand cmd = new SqlCommand();
             string commandText = "select " + funcName + "(";
@@ -91,7 +91,7 @@ namespace LibraryMgm.DataAccess.ADO
             return result;
         }
 
-        protected SqlDataReader ExcReaderFunc<T>(string funcName, SqlParameter[] ps = null)
+        protected SqlDataReader ExcReaderFunc(string funcName, params SqlParameter[] ps)
         {
             SqlCommand cmd = new SqlCommand();
             string commandText = "select " + funcName + "(";
@@ -115,7 +115,7 @@ namespace LibraryMgm.DataAccess.ADO
             return result;
         }
 
-        protected int ExcNonQuerySql(string proc, SqlParameter[] ps = null)
+        protected int ExcNonQuerySql(string proc, params SqlParameter[] ps)
         {
             SqlCommand cmd = new SqlCommand();
             if (ps != null)
@@ -132,7 +132,7 @@ namespace LibraryMgm.DataAccess.ADO
             return result;
         }
 
-        protected T ExcScalarSql<T>(string proc, SqlParameter[] ps = null)
+        protected T ExcScalarSql<T>(string proc, params SqlParameter[] ps)
         {
             SqlCommand cmd = new SqlCommand();
             if (ps != null)
@@ -149,7 +149,7 @@ namespace LibraryMgm.DataAccess.ADO
             return result;
         }
 
-        protected SqlDataReader ExcReaderSql(string proc, SqlParameter[] ps = null)
+        protected SqlDataReader ExcReaderSql(string proc, params SqlParameter[] ps)
         {
             SqlCommand cmd = new SqlCommand();
             if (ps != null)

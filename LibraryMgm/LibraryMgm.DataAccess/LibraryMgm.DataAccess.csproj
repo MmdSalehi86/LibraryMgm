@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookRepo.cs" />
     <Compile Include="Connections.cs" />
     <Compile Include="ADO\DbSqlCommands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TranslatorRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryMgm.Model\LibraryMgm.Model.csproj">
