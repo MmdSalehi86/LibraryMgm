@@ -40,5 +40,18 @@ namespace LibraryMgm.Model.Conversion
             }
             return vmList;
         }
+
+        public static SqlParameter[] ToSqlParameters<T>(T model)
+        {
+            var param = new List<SqlParameter>();
+            var type = model.GetType();
+            foreach (var prop in type.GetProperties())
+            {
+                param.Add(
+                    new SqlParameter($"@{prop.Name}",
+                    prop.GetValue(model)));
+            }
+            return param.ToArray();
+        }
     }
 }
