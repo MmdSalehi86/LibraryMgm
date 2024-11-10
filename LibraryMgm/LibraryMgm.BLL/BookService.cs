@@ -1,6 +1,7 @@
 ﻿using LibraryMgm.DataAccess;
 using LibraryMgm.Model.BookModel;
 using LibraryMgm.Model.Entities;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace LibraryMgm.BLL
@@ -20,18 +21,19 @@ namespace LibraryMgm.BLL
             if (!model.IsValid)
             {
                 opResult.IsValid = false;
-                opResult.ErrorMessage = model.ErrorMessage;
+                opResult.Message = model.ErrorMessage;
             }
             else
             {
                 try
                 {
                     bookRepo.Insert(model);
+                    opResult.Message = "عملیات ثبت کتاب موفقیت آمیز بود";
                 }
                 catch
                 {
                     opResult.ExcSucc = false;
-                    opResult.ErrorMessage = "خطا در افزودن کتاب";
+                    opResult.Message = "خطا در افزودن کتاب";
                 }
             }
             return opResult;
@@ -43,18 +45,19 @@ namespace LibraryMgm.BLL
             if (!model.IsValid)
             {
                 opResult.IsValid = false;
-                opResult.ErrorMessage = model.ErrorMessage;
+                opResult.Message = model.ErrorMessage;
             }
             else
             {
                 try
                 {
                     bookRepo.Update(model);
+                    opResult.Message = "عملیات ویرایش کتاب موفقیت آمیز بود";
                 }
                 catch
                 {
                     opResult.ExcSucc = false;
-                    opResult.ErrorMessage = "خطا در ویرایش کتاب";
+                    opResult.Message = "خطا در ویرایش کتاب";
                 }
             }
             return opResult;
@@ -62,12 +65,33 @@ namespace LibraryMgm.BLL
 
         public OperationResult Delete(int id)
         {
-            return new OperationResult();
+            var opResult = new OperationResult();
+            try
+            {
+                bookRepo.Delete(id);
+                opResult.Message = "عملیات حذف کتاب موفقیت آمیز بود";
+            }
+            catch
+            {
+                opResult.ExcSucc = false;
+                opResult.Message = "خطا در حذف کتاب";
+            }
+            return opResult;
         }
 
-        public OperationResult<BookVM> Select()
+        public OperationResult<List<BookVM>> Select()
         {
-            return new OperationResult<BookVM>();
+            var opResult = new OperationResult<List<BookVM>>();
+            try
+            {
+                opResult.Data = bookRepo.Select();
+            }
+            catch
+            {
+                opResult.ExcSucc = false;
+                opResult.Message = "خطا در خواندن اطلاعات کتاب ها";
+            }
+            return opResult;
         }
     }
 }
