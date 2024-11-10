@@ -56,14 +56,11 @@ namespace LibraryMgm.DataAccess.ADO
                 foreach (var p in ps)
                     cmd.Parameters.Add(p);
 
-            SqlDataReader result;
-            using (cmd.Connection = ConnectToDb())
-            {
-                cmd.CommandText = proc;
-                cmd.CommandType = CommandType.StoredProcedure;
-                result = cmd.ExecuteReader();
-                //cmd.Connection.Close();
-            }
+            cmd.Connection = ConnectToDb();
+            cmd.CommandText = proc;
+            cmd.CommandType = CommandType.StoredProcedure;
+            var result = cmd.ExecuteReader();
+            //cmd.Connection.Close();
             return result;
         }
 
@@ -103,15 +100,13 @@ namespace LibraryMgm.DataAccess.ADO
                     commandText += p.ParameterName + ",";
                 }
             }
-            SqlDataReader result;
-            using (cmd.Connection = ConnectToDb())
-            {
-                commandText = commandText.Remove(commandText.Length - 1, 1);
-                commandText += ")";
-                cmd.CommandText = commandText;
-                result = cmd.ExecuteReader();
-                //cmd.Connection.Close();
-            }
+
+            cmd.Connection = ConnectToDb();
+            commandText = commandText.Remove(commandText.Length - 1, 1);
+            commandText += ")";
+            cmd.CommandText = commandText;
+            var result = cmd.ExecuteReader();
+            //cmd.Connection.Close();
             return result;
         }
 
@@ -156,13 +151,10 @@ namespace LibraryMgm.DataAccess.ADO
                 foreach (var p in ps)
                     cmd.Parameters.Add(p);
 
-            SqlDataReader result;
-            using (cmd.Connection = ConnectToDb())
-            {
-                cmd.CommandText = proc;
-                result = cmd.ExecuteReader();
-                //cmd.Connection.Close();
-            }
+            cmd.Connection = ConnectToDb();
+            cmd.CommandText = proc;
+            var result = cmd.ExecuteReader();
+            //cmd.Connection.Close();
             return result;
         }
     }

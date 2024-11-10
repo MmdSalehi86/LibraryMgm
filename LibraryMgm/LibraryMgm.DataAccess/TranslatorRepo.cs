@@ -21,7 +21,10 @@ namespace LibraryMgm.DataAccess
 
         public List<TranslatorVM> Select()
         {
-            return ExcReaderFunc("SELECT_TRANSLATOR").ToListViewModel<TranslatorVM>();
+            var reader= ExcReaderProc("SELECT_TRANSLATOR");
+            var list = reader.ToListViewModel<TranslatorVM>();
+            reader.Close();
+            return list;
         }
 
         public void Update(Translator model)

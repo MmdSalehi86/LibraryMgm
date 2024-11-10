@@ -36,15 +36,15 @@
             this.txtYear = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.lblToast = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbTranslator = new System.Windows.Forms.ComboBox();
             this.colRowNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPublisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTranslator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblToast = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbTranslator = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,60 +140,6 @@
             this.dgv.Size = new System.Drawing.Size(618, 241);
             this.dgv.TabIndex = 4;
             // 
-            // colRowNum
-            // 
-            this.colRowNum.HeaderText = "ردیف";
-            this.colRowNum.MinimumWidth = 100;
-            this.colRowNum.Name = "colRowNum";
-            this.colRowNum.ReadOnly = true;
-            this.colRowNum.Width = 125;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "نام";
-            this.colName.MinimumWidth = 6;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 125;
-            // 
-            // colYear
-            // 
-            this.colYear.DataPropertyName = "Year";
-            this.colYear.HeaderText = "سال چاپ";
-            this.colYear.MinimumWidth = 6;
-            this.colYear.Name = "colYear";
-            this.colYear.ReadOnly = true;
-            this.colYear.Width = 110;
-            // 
-            // colPublisher
-            // 
-            this.colPublisher.DataPropertyName = "Nasher";
-            this.colPublisher.HeaderText = "ناشر";
-            this.colPublisher.MinimumWidth = 6;
-            this.colPublisher.Name = "colPublisher";
-            this.colPublisher.ReadOnly = true;
-            this.colPublisher.Width = 125;
-            // 
-            // colTranslator
-            // 
-            this.colTranslator.DataPropertyName = "TranslatorName";
-            this.colTranslator.HeaderText = "مترجم";
-            this.colTranslator.MinimumWidth = 6;
-            this.colTranslator.Name = "colTranslator";
-            this.colTranslator.ReadOnly = true;
-            this.colTranslator.Width = 125;
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "Id";
-            this.colId.MinimumWidth = 6;
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Visible = false;
-            this.colId.Width = 125;
-            // 
             // lblToast
             // 
             this.lblToast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -225,6 +171,60 @@
             this.cmbTranslator.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbTranslator.Size = new System.Drawing.Size(153, 33);
             this.cmbTranslator.TabIndex = 13;
+            // 
+            // colRowNum
+            // 
+            this.colRowNum.HeaderText = "ردیف";
+            this.colRowNum.MinimumWidth = 100;
+            this.colRowNum.Name = "colRowNum";
+            this.colRowNum.ReadOnly = true;
+            this.colRowNum.Width = 125;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "نام";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 125;
+            // 
+            // colYear
+            // 
+            this.colYear.DataPropertyName = "Year";
+            this.colYear.HeaderText = "سال چاپ";
+            this.colYear.MinimumWidth = 6;
+            this.colYear.Name = "colYear";
+            this.colYear.ReadOnly = true;
+            this.colYear.Width = 110;
+            // 
+            // colPublisher
+            // 
+            this.colPublisher.DataPropertyName = "Publisher";
+            this.colPublisher.HeaderText = "ناشر";
+            this.colPublisher.MinimumWidth = 6;
+            this.colPublisher.Name = "colPublisher";
+            this.colPublisher.ReadOnly = true;
+            this.colPublisher.Width = 125;
+            // 
+            // colTranslator
+            // 
+            this.colTranslator.DataPropertyName = "TranslatorName";
+            this.colTranslator.HeaderText = "مترجم";
+            this.colTranslator.MinimumWidth = 6;
+            this.colTranslator.Name = "colTranslator";
+            this.colTranslator.ReadOnly = true;
+            this.colTranslator.Width = 125;
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.MinimumWidth = 6;
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            this.colId.Width = 125;
             // 
             // FrmBook
             // 

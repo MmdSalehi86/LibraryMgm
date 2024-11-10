@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryMgm.Model.Entities
 {
-    public class TranslatorVM : BaseValidation
+    public class TranslatorVM
     {
         public int Id { get; set; }
 
