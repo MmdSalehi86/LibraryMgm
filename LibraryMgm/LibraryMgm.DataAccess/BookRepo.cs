@@ -22,7 +22,7 @@ namespace LibraryMgm.DataAccess
 
         public List<BookVM> Select()
         {
-            return ExcReaderFunc("SELECT_BOOK").ToListViewModel<BookVM>();
+            return ExcReaderProc("SELECT_BOOK").ToListViewModel<BookVM>();
         }
 
         public void Update(Book model)

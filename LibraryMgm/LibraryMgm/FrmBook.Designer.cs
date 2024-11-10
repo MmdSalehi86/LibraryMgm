@@ -246,6 +246,7 @@
             this.Name = "FrmBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form Book";
+            this.Load += new System.EventHandler(this.FrmBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

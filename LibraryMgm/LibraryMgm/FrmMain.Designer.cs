@@ -42,7 +42,7 @@
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(132, 69);
             this.btnAddBook.TabIndex = 1;
-            this.btnAddBook.Text = "ثبت کتاب";
+            this.btnAddBook.Text = "کتاب ها";
             this.btnAddBook.UseVisualStyleBackColor = true;
             this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
             // 
@@ -54,7 +54,7 @@
             this.btnAddTranslator.Name = "btnAddTranslator";
             this.btnAddTranslator.Size = new System.Drawing.Size(132, 69);
             this.btnAddTranslator.TabIndex = 1;
-            this.btnAddTranslator.Text = "ثبت مترجم";
+            this.btnAddTranslator.Text = "مترجمان";
             this.btnAddTranslator.UseVisualStyleBackColor = true;
             this.btnAddTranslator.Click += new System.EventHandler(this.btnAddTranslator_Click);
             // 
