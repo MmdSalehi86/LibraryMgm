@@ -1,18 +1,63 @@
-﻿using LibraryMgm.Model.BookModel;
+﻿using LibraryMgm.DataAccess;
+using LibraryMgm.Model.BookModel;
 using LibraryMgm.Model.Entities;
+using System.Reflection;
 
 namespace LibraryMgm.BLL
 {
     public class BookService
     {
-        public OperationResult Insert(InsertBookModel book)
+        BookRepo bookRepo;
+
+        public BookService()
         {
-            return new OperationResult();
+            bookRepo = new BookRepo();
         }
 
-        public OperationResult Update(Book book)
+        public OperationResult Insert(InsertBookModel model)
         {
-            return new OperationResult();
+            var opResult = new OperationResult();
+            if (!model.IsValid)
+            {
+                opResult.IsValid = false;
+                opResult.ErrorMessage = model.ErrorMessage;
+            }
+            else
+            {
+                try
+                {
+                    bookRepo.Insert(model);
+                }
+                catch
+                {
+                    opResult.ExcSucc = false;
+                    opResult.ErrorMessage = "خطا در افزودن کتاب";
+                }
+            }
+            return opResult;
+        }
+
+        public OperationResult Update(Book model)
+        {
+            var opResult = new OperationResult();
+            if (!model.IsValid)
+            {
+                opResult.IsValid = false;
+                opResult.ErrorMessage = model.ErrorMessage;
+            }
+            else
+            {
+                try
+                {
+                    bookRepo.Update(model);
+                }
+                catch
+                {
+                    opResult.ExcSucc = false;
+                    opResult.ErrorMessage = "خطا در ویرایش کتاب";
+                }
+            }
+            return opResult;
         }
 
         public OperationResult Delete(int id)

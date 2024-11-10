@@ -45,6 +45,10 @@
     <Compile Include="TranslatorService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibraryMgm.DataAccess\LibraryMgm.DataAccess.csproj">
+      <Project>{aa69bbd0-9f1b-4b87-b393-78daffcc0ef4}</Project>
+      <Name>LibraryMgm.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryMgm.Model\LibraryMgm.Model.csproj">
       <Project>{8657b0f5-79c0-4bf1-9a4d-4eb58e73ced3}</Project>
       <Name>LibraryMgm.Model</Name>
