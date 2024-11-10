@@ -41,7 +41,7 @@ namespace LibraryMgm.Model.Conversion
             return vmList;
         }
 
-        public static SqlParameter[] ToSqlParameters<T>(T model)
+        public static SqlParameter[] ModelToSqlParams<T>(T model)
         {
             var param = new List<SqlParameter>();
             var type = model.GetType();
