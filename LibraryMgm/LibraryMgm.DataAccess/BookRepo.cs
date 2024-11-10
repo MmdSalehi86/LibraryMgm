@@ -15,21 +15,19 @@ namespace LibraryMgm.DataAccess
 
         public void Insert(InsertBookModel model)
         {
-            //TODO: need to Entity to SqlParameter
             ExcNonQueryProc("INSERT_BOOK",
-                null);
+                Conversion.ModelToSqlParams(model));
         }
 
-        public List<TranslatorVM> Select()
+        public List<BookVM> Select()
         {
-            return ExcReaderFunc("SELECT_BOOK").ToListViewModel<TranslatorVM>();
+            return ExcReaderFunc("SELECT_BOOK").ToListViewModel<BookVM>();
         }
 
-        public void Update(Translator translator)
+        public void Update(Book model)
         {
-            //TODO: need to Entity to SqlParameter
-            ExcNonQueryProc("UPDATE_BOOK", null
-                );
+            ExcNonQueryProc("UPDATE_BOOK",
+                Conversion.ModelToSqlParams(model));
         }
 
         public void Delete(int id)

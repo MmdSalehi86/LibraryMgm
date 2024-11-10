@@ -14,9 +14,8 @@ namespace LibraryMgm.DataAccess
 
         public void Insert(InsertTranslatorModel model)
         {
-            //TODO: need to Entity to SqlParameter
             ExcNonQueryProc("INSERT_TRANSLATOR",
-                null);
+                Conversion.ModelToSqlParams(model));
         }
 
         public List<TranslatorVM> Select()
@@ -24,16 +23,15 @@ namespace LibraryMgm.DataAccess
             return ExcReaderFunc("SELECT_TRANSLATOR").ToListViewModel<TranslatorVM>();
         }
 
-        public void Update(Translator translator)
+        public void Update(Translator model)
         {
-            //TODO: need to Entity to SqlParameter
-            ExcNonQueryProc("UPDATE_TRANSLATOR", null
-                );
+            ExcNonQueryProc("UPDATE_TRANSLATOR",
+                Conversion.ModelToSqlParams(model));
         }
 
         public void Delete(int id)
         {
-            ExcNonQuerySql("DELETE FROM Translator WHERE Id=@Id",
+            ExcNonQuerySql("DELETE_TRANSLATOR",
                 new SqlParameter("Id", id));
         }
     }
