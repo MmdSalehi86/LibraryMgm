@@ -36,7 +36,7 @@ namespace LibraryMgm.DataAccess
                 new SqlParameter("Id", id));
         }
 
-        public bool CheckExists(string firstName, string lastName, int? id)
+        public bool CheckExists(string firstName, string lastName, int? id = null)
         {
             return ExcScalarFunc<bool>("dbo.CHECK_EXISTS_TRANSLATOR",
                 new SqlParameter("@FirstName", firstName),

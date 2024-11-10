@@ -23,22 +23,23 @@ namespace LibraryMgm.BLL
                 opResult.IsValid = false;
                 opResult.Message = model.ErrorMessage;
             }
-            else if (bookRepo.CheckExists(model.Name))
-            {
-                opResult.Message = "نام کتاب تکراری است";
-                opResult.IsValid = false;
-            }
             else
             {
-                try
+                var existsResult = CheckExists(model.Name);
+                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
+                    return existsResult;
+                else
                 {
-                    bookRepo.Insert(model);
-                    opResult.Message = "عملیات ثبت کتاب موفقیت آمیز بود";
-                }
-                catch
-                {
-                    opResult.ExcSucc = false;
-                    opResult.Message = "خطا در افزودن کتاب";
+                    try
+                    {
+                        bookRepo.Insert(model);
+                        opResult.Message = "عملیات ثبت کتاب موفقیت آمیز بود";
+                    }
+                    catch
+                    {
+                        opResult.ExcSucc = false;
+                        opResult.Message = "خطا در افزودن کتاب";
+                    }
                 }
             }
             return opResult;
@@ -52,13 +53,11 @@ namespace LibraryMgm.BLL
                 opResult.IsValid = false;
                 opResult.Message = model.ErrorMessage;
             }
-            else if (bookRepo.CheckExists(model.Name, model.Id))
-            {
-                opResult.Message = "نام کتاب تکراری است";
-                opResult.IsValid = false;
-            }
             else
             {
+                var existsResult = CheckExists(model.Name, model.Id);
+                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
+                    return existsResult;
                 try
                 {
                     bookRepo.Update(model);
@@ -100,6 +99,23 @@ namespace LibraryMgm.BLL
             {
                 opResult.ExcSucc = false;
                 opResult.Message = "خطا در خواندن اطلاعات کتاب ها";
+            }
+            return opResult;
+        }
+
+
+        public OperationResult CheckExists(string name, int? id = null)
+        {
+            var opResult = new OperationResult();
+            try
+            {
+                opResult.IsValid = !bookRepo.CheckExists(name, id);
+                opResult.Message = "نام کتاب تکراری است";
+            }
+            catch
+            {
+                opResult.Message = "خطا هنگام بررسی اطلاعات";
+                opResult.ExcSucc = false;
             }
             return opResult;
         }

@@ -1,28 +1,119 @@
-﻿using LibraryMgm.Model.BookModel;
+﻿using LibraryMgm.DataAccess;
+using LibraryMgm.Model.BookModel;
 using LibraryMgm.Model.Entities;
+using System.Collections.Generic;
 
 namespace LibraryMgm.BLL
 {
     public class TranslatorService
     {
-        public OperationResult Insert(InsertTranslatorModel book)
+        TranslatorRepo trnRepo;
+
+        public TranslatorService()
         {
-            return new OperationResult();
+            trnRepo = new TranslatorRepo();
         }
 
-        public OperationResult Update(Translator book)
+        public OperationResult Insert(InsertTranslatorModel model)
         {
-            return new OperationResult();
+            var opResult = new OperationResult();
+            if (!model.IsValid)
+            {
+                opResult.IsValid = false;
+                opResult.Message = model.ErrorMessage;
+            }
+            else
+            {
+                var existsResult = CheckExists(model.FirstName, model.LastName);
+                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
+                    return existsResult;
+                try
+                {
+                    trnRepo.Insert(model);
+                    opResult.Message = "عملیات ثبت مترجم موفقیت آمیز بود";
+                }
+                catch
+                {
+                    opResult.ExcSucc = false;
+                    opResult.Message = "خطا در افزودن مترجم";
+                }
+            }
+            return opResult;
+        }
+
+        public OperationResult Update(Translator model)
+        {
+            var opResult = new OperationResult();
+            if (!model.IsValid)
+            {
+                opResult.IsValid = false;
+                opResult.Message = model.ErrorMessage;
+            }
+            else
+            {
+                var existsResult = CheckExists(model.FirstName, model.LastName, model.Id);
+                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
+                    return existsResult;
+                try
+                {
+                    trnRepo.Update(model);
+                    opResult.Message = "عملیات ویرایش مترجم موفقیت آمیز بود";
+                }
+                catch
+                {
+                    opResult.ExcSucc = false;
+                    opResult.Message = "خطا در ویرایش مترجم";
+                }
+            }
+            return opResult;
         }
 
         public OperationResult Delete(int id)
         {
-            return new OperationResult();
+            var opResult = new OperationResult();
+            try
+            {
+                trnRepo.Delete(id);
+                opResult.Message = "عملیات حذف مترجم موفقیت آمیز بود";
+            }
+            catch
+            {
+                opResult.ExcSucc = false;
+                opResult.Message = "خطا در حذف مترجم";
+            }
+            return opResult;
         }
 
-        public OperationResult<TranslatorVM> Select()
+        public OperationResult<List<TranslatorVM>> Select()
         {
-            return new OperationResult<TranslatorVM>();
+            var opResult = new OperationResult<List<TranslatorVM>>();
+            try
+            {
+                opResult.Data = trnRepo.Select();
+            }
+            catch
+            {
+                opResult.ExcSucc = false;
+                opResult.Message = "خطا در خواندن اطلاعات مترجمان";
+            }
+            return opResult;
+        }
+
+
+        public OperationResult CheckExists(string firstName, string lastName, int? id = null)
+        {
+            var opResult = new OperationResult();
+            try
+            {
+                opResult.IsValid = !trnRepo.CheckExists(firstName, lastName, id);
+                opResult.Message = "نام مترجم تکراری است";
+            }
+            catch
+            {
+                opResult.Message = "خطا هنگام بررسی اطلاعات";
+                opResult.ExcSucc = false;
+            }
+            return opResult;
         }
     }
 }
