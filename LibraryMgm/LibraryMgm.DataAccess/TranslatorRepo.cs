@@ -34,5 +34,12 @@ namespace LibraryMgm.DataAccess
             ExcNonQuerySql("DELETE_TRANSLATOR",
                 new SqlParameter("Id", id));
         }
+
+        public bool CheckExists(string firstName, string lastName)
+        {
+            return ExcScalarFunc<bool>("dbo.CHECK_EXISTS_TRANSLATOR",
+                new SqlParameter("@FirstName", firstName),
+                new SqlParameter("@LastName", lastName));
+        }
     }
 }

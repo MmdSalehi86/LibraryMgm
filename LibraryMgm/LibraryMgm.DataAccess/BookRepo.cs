@@ -35,5 +35,12 @@ namespace LibraryMgm.DataAccess
             ExcNonQuerySql("DELETE FROM Book WHERE Id=@Id",
                 new SqlParameter("Id", id));
         }
+
+
+        public bool CheckExists(string name)
+        {
+            return ExcScalarFunc<bool>("dbo.CHECK_EXISTS_BOOK",
+                new SqlParameter("@Name", name));
+        }
     }
 }
