@@ -23,6 +23,11 @@ namespace LibraryMgm.BLL
                 opResult.IsValid = false;
                 opResult.Message = model.ErrorMessage;
             }
+            else if (bookRepo.CheckExists(model.Name))
+            {
+                opResult.Message = "نام کتاب تکراری است";
+                opResult.IsValid = false;
+            }
             else
             {
                 try
@@ -46,6 +51,11 @@ namespace LibraryMgm.BLL
             {
                 opResult.IsValid = false;
                 opResult.Message = model.ErrorMessage;
+            }
+            else if (bookRepo.CheckExists(model.Name, model.Id))
+            {
+                opResult.Message = "نام کتاب تکراری است";
+                opResult.IsValid = false;
             }
             else
             {

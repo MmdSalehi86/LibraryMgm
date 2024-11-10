@@ -3,6 +3,7 @@ using LibraryMgm.Model.Entities;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using LibraryMgm.Model.Conversion;
+using System;
 
 namespace LibraryMgm.DataAccess
 {
@@ -35,11 +36,12 @@ namespace LibraryMgm.DataAccess
                 new SqlParameter("Id", id));
         }
 
-        public bool CheckExists(string firstName, string lastName)
+        public bool CheckExists(string firstName, string lastName, int? id)
         {
             return ExcScalarFunc<bool>("dbo.CHECK_EXISTS_TRANSLATOR",
                 new SqlParameter("@FirstName", firstName),
-                new SqlParameter("@LastName", lastName));
+                new SqlParameter("@LastName", lastName),
+                new SqlParameter("@Id", id.HasValue ? (object)id.Value : DBNull.Value));
         }
     }
 }

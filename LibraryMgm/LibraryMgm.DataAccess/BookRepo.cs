@@ -4,6 +4,7 @@ using LibraryMgm.Model.Entities;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using LibraryMgm.Model.Conversion;
+using System;
 
 namespace LibraryMgm.DataAccess
 {
@@ -37,10 +38,11 @@ namespace LibraryMgm.DataAccess
         }
 
 
-        public bool CheckExists(string name)
+        public bool CheckExists(string name, int? id = null)
         {
             return ExcScalarFunc<bool>("dbo.CHECK_EXISTS_BOOK",
-                new SqlParameter("@Name", name));
+                new SqlParameter("@Name", name),
+                new SqlParameter("@Id", id.HasValue ? (object)id.Value : DBNull.Value));
         }
     }
 }
