@@ -7,6 +7,8 @@ namespace LibraryMgm
         public FrmMain()
         {
             InitializeComponent();
+
+            cmbORM.SelectedIndex = 0;
         }
 
         private void btnAddTranslator_Click(object sender, System.EventArgs e)

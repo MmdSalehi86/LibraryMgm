@@ -13,7 +13,7 @@ namespace LibraryMgm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmORM());
+            Application.Run(new FrmMain());
         }
     }
 }
