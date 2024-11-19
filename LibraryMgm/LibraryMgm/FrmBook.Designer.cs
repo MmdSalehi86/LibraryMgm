@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAdd = new System.Windows.Forms.Button();
             this.labe3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,7 +46,12 @@
             this.lblToast = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbTranslator = new System.Windows.Forms.ComboBox();
+            this.timerToast = new System.Windows.Forms.Timer(this.components);
+            this.btnCancelUpdate = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -58,6 +64,7 @@
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "ثبت";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // labe3
             // 
@@ -127,6 +134,7 @@
             this.colPublisher,
             this.colTranslator,
             this.colId});
+            this.dgv.ContextMenuStrip = this.contextMenuStrip1;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv.Location = new System.Drawing.Point(0, 285);
             this.dgv.MultiSelect = false;
@@ -139,6 +147,7 @@
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(618, 241);
             this.dgv.TabIndex = 4;
+            this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
             // colRowNum
@@ -153,7 +162,7 @@
             // 
             this.colName.DataPropertyName = "Name";
             this.colName.HeaderText = "نام";
-            this.colName.MinimumWidth = 6;
+            this.colName.MinimumWidth = 100;
             this.colName.Name = "colName";
             this.colName.ReadOnly = true;
             this.colName.Width = 125;
@@ -162,7 +171,7 @@
             // 
             this.colYear.DataPropertyName = "Year";
             this.colYear.HeaderText = "سال چاپ";
-            this.colYear.MinimumWidth = 6;
+            this.colYear.MinimumWidth = 100;
             this.colYear.Name = "colYear";
             this.colYear.ReadOnly = true;
             this.colYear.Width = 110;
@@ -171,7 +180,7 @@
             // 
             this.colPublisher.DataPropertyName = "Publisher";
             this.colPublisher.HeaderText = "ناشر";
-            this.colPublisher.MinimumWidth = 6;
+            this.colPublisher.MinimumWidth = 100;
             this.colPublisher.Name = "colPublisher";
             this.colPublisher.ReadOnly = true;
             this.colPublisher.Width = 125;
@@ -180,7 +189,7 @@
             // 
             this.colTranslator.DataPropertyName = "TranslatorName";
             this.colTranslator.HeaderText = "مترجم";
-            this.colTranslator.MinimumWidth = 6;
+            this.colTranslator.MinimumWidth = 100;
             this.colTranslator.Name = "colTranslator";
             this.colTranslator.ReadOnly = true;
             this.colTranslator.Width = 125;
@@ -227,12 +236,47 @@
             this.cmbTranslator.Size = new System.Drawing.Size(153, 33);
             this.cmbTranslator.TabIndex = 13;
             // 
+            // timerToast
+            // 
+            this.timerToast.Interval = 4000;
+            this.timerToast.Tick += new System.EventHandler(this.timerToast_Tick);
+            // 
+            // btnCancelUpdate
+            // 
+            this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelUpdate.Location = new System.Drawing.Point(429, 175);
+            this.btnCancelUpdate.Name = "btnCancelUpdate";
+            this.btnCancelUpdate.Size = new System.Drawing.Size(112, 47);
+            this.btnCancelUpdate.TabIndex = 12;
+            this.btnCancelUpdate.Text = "لغو ویرایش";
+            this.btnCancelUpdate.UseVisualStyleBackColor = true;
+            this.btnCancelUpdate.Visible = false;
+            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDelete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 28);
+            // 
+            // tsmiDelete
+            // 
+            this.tsmiDelete.Name = "tsmiDelete";
+            this.tsmiDelete.Size = new System.Drawing.Size(210, 24);
+            this.tsmiDelete.Text = "حذف";
+            this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
+            // 
             // FrmBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(618, 526);
             this.Controls.Add(this.cmbTranslator);
+            this.Controls.Add(this.btnCancelUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblToast);
             this.Controls.Add(this.label3);
@@ -249,6 +293,7 @@
             this.Text = "Form Book";
             this.Load += new System.EventHandler(this.FrmBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,11 +312,15 @@
         private System.Windows.Forms.Label lblToast;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbTranslator;
+        private System.Windows.Forms.Timer timerToast;
+        private System.Windows.Forms.Button btnCancelUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRowNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPublisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTranslator;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
     }
 }

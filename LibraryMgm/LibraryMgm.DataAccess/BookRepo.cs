@@ -16,8 +16,10 @@ namespace LibraryMgm.DataAccess
 
         public void Insert(InsertBookModel model)
         {
+            var v = Conversion.ModelToSqlParams(model);
             ExcNonQueryProc("INSERT_BOOK",
                 Conversion.ModelToSqlParams(model));
+
         }
 
         public List<BookVM> Select()
@@ -30,8 +32,19 @@ namespace LibraryMgm.DataAccess
 
         public void Update(Book model)
         {
+            var param = Conversion.ModelToSqlParams(model);
+            for (int i = 0; i < param.Length; i++)
+            {
+                if (param[i].ParameterName == $"@{nameof(Translator)}")
+                {
+                    var name = $"@{nameof(Translator)}Id";
+                    var value = ((Translator)param[i].Value).Id;
+                    param[i] = new SqlParameter(name, value);
+                    break;
+                }
+            }
             ExcNonQueryProc("UPDATE_BOOK",
-                Conversion.ModelToSqlParams(model));
+                param);
         }
 
         public void Delete(int id)

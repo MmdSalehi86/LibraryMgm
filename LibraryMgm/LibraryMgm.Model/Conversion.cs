@@ -47,9 +47,12 @@ namespace LibraryMgm.Model.Conversion
             var type = model.GetType();
             foreach (var prop in type.GetProperties())
             {
-                param.Add(
-                    new SqlParameter($"@{prop.Name}",
-                    prop.GetValue(model)));
+                if (prop.Name != "ErrorMessage" && prop.Name != "IsValid")
+                {
+                    param.Add(
+                        new SqlParameter($"@{prop.Name}",
+                            prop.GetValue(model)));
+                }
             }
             return param.ToArray();
         }

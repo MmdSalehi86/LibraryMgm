@@ -109,8 +109,10 @@ namespace LibraryMgm.BLL
             var opResult = new OperationResult();
             try
             {
-                opResult.IsValid = !bookRepo.CheckExists(name, id);
-                opResult.Message = "نام کتاب تکراری است";
+                var exists = bookRepo.CheckExists(name, id);
+                opResult.IsValid = !exists;
+                if (exists)
+                    opResult.Message = "نام کتاب تکراری است";
             }
             catch
             {
