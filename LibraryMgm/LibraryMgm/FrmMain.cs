@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using LibraryMgm.Model;
+using System.Windows.Forms;
 
 namespace LibraryMgm
 {
@@ -19,6 +20,14 @@ namespace LibraryMgm
         private void btnAddBook_Click(object sender, System.EventArgs e)
         {
             new FrmBook().ShowDialog();
+        }
+
+        private void cmbORM_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (cmbORM.SelectedIndex == 0)
+                DbConfiguration.ConnectionMethod = ConnectionMethods.ADO;
+            else if (cmbORM.SelectedIndex == 1)
+                DbConfiguration.ConnectionMethod = ConnectionMethods.EF;
         }
     }
 }

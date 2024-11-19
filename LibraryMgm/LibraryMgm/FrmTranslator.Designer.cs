@@ -144,6 +144,7 @@
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(501, 241);
             this.dgv.TabIndex = 5;
+            this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
             // ColRowNum
             // 
@@ -155,6 +156,7 @@
             // 
             // colFullName
             // 
+            this.colFullName.DataPropertyName = "FullName";
             this.colFullName.HeaderText = "نام کامل";
             this.colFullName.MinimumWidth = 6;
             this.colFullName.Name = "colFullName";
@@ -163,6 +165,7 @@
             // 
             // colLocation
             // 
+            this.colLocation.DataPropertyName = "Location";
             this.colLocation.HeaderText = "محل زندگی";
             this.colLocation.MinimumWidth = 6;
             this.colLocation.Name = "colLocation";
@@ -171,6 +174,7 @@
             // 
             // ColId
             // 
+            this.ColId.DataPropertyName = "Id";
             this.ColId.HeaderText = "Id";
             this.ColId.MinimumWidth = 6;
             this.ColId.Name = "ColId";
@@ -195,6 +199,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmTranslator";
             this.Text = "FrmTranslator";
+            this.Load += new System.EventHandler(this.FrmTranslator_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

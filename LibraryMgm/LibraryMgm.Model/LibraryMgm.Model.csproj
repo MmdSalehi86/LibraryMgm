@@ -43,6 +43,7 @@
     <Compile Include="BookModel\BookVM.cs" />
     <Compile Include="BookModel\InsertBookModel.cs" />
     <Compile Include="Conversion.cs" />
+    <Compile Include="DbConfiguration.cs" />
     <Compile Include="TranslatorModel\InsertTranslatorModel.cs" />
     <Compile Include="TranslatorModel\TranslatorVM.cs" />
     <Compile Include="Validations\BaseValidation.cs" />

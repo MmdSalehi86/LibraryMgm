@@ -11,6 +11,6 @@ namespace LibraryMgm.BLL
 
     public class OperationResult<T> : OperationResult
     {
-        public T Data;
+        public T Data { get; set; }
     }
 }

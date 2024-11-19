@@ -51,5 +51,11 @@ namespace LibraryMgm
                 cmbTranslator.ValueMember = "Id";
             }
         }
+
+        private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == colRowNum.Index)
+                e.Value = e.RowIndex + 1;
+        }
     }
 }

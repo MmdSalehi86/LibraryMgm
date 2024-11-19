@@ -78,6 +78,7 @@
             this.cmbORM.Name = "cmbORM";
             this.cmbORM.Size = new System.Drawing.Size(229, 30);
             this.cmbORM.TabIndex = 3;
+            this.cmbORM.SelectedIndexChanged += new System.EventHandler(this.cmbORM_SelectedIndexChanged);
             // 
             // FrmMain
             // 
