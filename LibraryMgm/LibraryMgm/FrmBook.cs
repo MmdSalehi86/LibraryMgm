@@ -24,12 +24,11 @@ namespace LibraryMgm
             FillCmbTranslators();
         }
 
-
         private void FillDgv()
         {
             BookService bookServ = new BookService();
             var result = bookServ.Select();
-            ShowToastMsg(result, false);
+            ShowToastMsg(result);
 
             if (result.ExcSucc)
                 dgv.DataSource = result.Data;
@@ -40,7 +39,7 @@ namespace LibraryMgm
             TranslatorService trnServ = new TranslatorService();
             var result = trnServ.Select();
 
-            ShowToastMsg(result, false);
+            ShowToastMsg(result);
 
             if (result.ExcSucc)
             {
@@ -93,7 +92,7 @@ namespace LibraryMgm
 
 
             }
-            ShowToastMsg(result, true);
+            ShowToastMsg(result);
             if (result.ExcSucc && result.IsValid)
             {
                 ClearInputs();
@@ -106,13 +105,13 @@ namespace LibraryMgm
             txtName.Text = string.Empty;
             txtPublisher.Text = string.Empty;
             txtYear.Text = string.Empty;
+            id = null;
             //cmbTranslator.SelectedIndex = -1;
 
             btnCancelUpdate.Visible = false;
-            id = null;
         }
 
-        private void ShowToastMsg(OperationResult op, bool showSuccMsg)
+        private void ShowToastMsg(OperationResult op)
         {
             if (!op.ExcSucc)
             {
@@ -122,7 +121,7 @@ namespace LibraryMgm
             }
             else if (!op.IsValid)
                 MessageBox.Show(op.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (showSuccMsg)
+            else if (!op.Message.IsNull())
             {
                 lblToast.ForeColor = Color.Green;
                 lblToast.Text = op.Message;
@@ -154,12 +153,7 @@ namespace LibraryMgm
             }
         }
 
-        private void btnCancelUpdate_Click(object sender, EventArgs e)
-        {
-            id = null;
-            btnCancelUpdate.Visible = false;
-            ClearInputs();
-        }
+        private void btnCancelUpdate_Click(object sender, EventArgs e) => ClearInputs();
 
         private void tsmiDelete_Click(object sender, EventArgs e)
         {
@@ -175,7 +169,7 @@ namespace LibraryMgm
                 {
                     BookService bookServ = new BookService();
                     var opResult = bookServ.Delete(current.Cells[colId.Index].Value.ToInt32());
-                    ShowToastMsg(opResult, true);
+                    ShowToastMsg(opResult);
                     if (opResult.ExcSucc)
                         FillDgv();
                 }

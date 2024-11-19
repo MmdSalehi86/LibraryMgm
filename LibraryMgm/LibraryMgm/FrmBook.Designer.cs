@@ -43,13 +43,13 @@
             this.colPublisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTranslator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.lblToast = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbTranslator = new System.Windows.Forms.ComboBox();
             this.timerToast = new System.Windows.Forms.Timer(this.components);
             this.btnCancelUpdate = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -143,7 +143,7 @@
             this.dgv.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowHeadersWidth = 51;
-            this.dgv.RowTemplate.Height = 24;
+            this.dgv.RowTemplate.Height = 28;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(618, 241);
             this.dgv.TabIndex = 4;
@@ -204,6 +204,22 @@
             this.colId.Visible = false;
             this.colId.Width = 125;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDelete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 28);
+            // 
+            // tsmiDelete
+            // 
+            this.tsmiDelete.Name = "tsmiDelete";
+            this.tsmiDelete.Size = new System.Drawing.Size(110, 24);
+            this.tsmiDelete.Text = "حذف";
+            this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
+            // 
             // lblToast
             // 
             this.lblToast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -253,22 +269,6 @@
             this.btnCancelUpdate.UseVisualStyleBackColor = true;
             this.btnCancelUpdate.Visible = false;
             this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiDelete});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 28);
-            // 
-            // tsmiDelete
-            // 
-            this.tsmiDelete.Name = "tsmiDelete";
-            this.tsmiDelete.Size = new System.Drawing.Size(210, 24);
-            this.tsmiDelete.Text = "حذف";
-            this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
             // 
             // FrmBook
             // 

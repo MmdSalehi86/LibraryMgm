@@ -1,10 +1,14 @@
 ﻿using LibraryMgm.BLL;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace LibraryMgm
 {
     public partial class FrmTranslator : Form
     {
+        int? id = null;
+
         public FrmTranslator()
         {
             InitializeComponent();
@@ -22,14 +26,6 @@ namespace LibraryMgm
             ShowToastMsg(result);
         }
 
-        private void ShowToastMsg(OperationResult op)
-        {
-            if (!op.ExcSucc)
-                lblToast.Text = op.Message;
-            else if (!op.IsValid)
-                MessageBox.Show(op.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
         private void FrmTranslator_Load(object sender, System.EventArgs e)
         {
             FillDgv();
@@ -39,6 +35,86 @@ namespace LibraryMgm
         {
             if (e.ColumnIndex == ColRowNum.Index)
                 e.Value = e.RowIndex + 1;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelUpdate_Click(object sender, EventArgs e) => ClearInputs();
+
+        private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var current = dgv.Rows[e.RowIndex];
+                if (current != null)
+                {
+                    txtFirstName.Text = current.Cells[colFirstName.Index].Value.ToString();
+                    txtLastName.Text = current.Cells[colLastName.Index].Value.ToString();
+                    txtLocation.Text = current.Cells[colLocation.Index].Value.ToString();
+                    id = current.Cells[colId.Index].Value.ToInt32();
+
+                    btnCancelUpdate.Visible = true;
+                }
+            }
+        }
+
+        private void tsmiDelete_Click(object sender, EventArgs e)
+        {
+            var current = dgv.CurrentRow;
+
+            if (current != null)
+            {
+                var msg = $"آیا از حذف {current.Cells[colFullName.Index].Value} مطمئن هستید؟";
+                var result = MessageBox.Show(msg, "Delete from book", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question, MessageBoxDefaultButton.Button2,
+                    MessageBoxOptions.RtlReading);
+                if (result == DialogResult.Yes)
+                {
+                    BookService bookServ = new BookService();
+                    var opResult = bookServ.Delete(current.Cells[colId.Index].Value.ToInt32());
+                    ShowToastMsg(opResult);
+                    if (opResult.ExcSucc)
+                        FillDgv();
+                }
+            }
+        }
+
+
+        private void timerToast_Tick(object sender, EventArgs e)
+        {
+            timerToast.Stop();
+            lblToast.Text = string.Empty;
+        }
+
+        private void ShowToastMsg(OperationResult op)
+        {
+            if (!op.ExcSucc)
+            {
+                timerToast.Start();
+                lblToast.ForeColor = Color.Red;
+                lblToast.Text = op.Message;
+            }
+            else if (!op.IsValid)
+                MessageBox.Show(op.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (!op.Message.IsNull())
+            {
+                lblToast.ForeColor = Color.Green;
+                lblToast.Text = op.Message;
+                timerToast.Start();
+            }
+        }
+
+        private void ClearInputs()
+        {
+            txtFirstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            txtLocation.Text = string.Empty;
+            id = null;
+
+            btnCancelUpdate.Visible = false;
         }
     }
 }
