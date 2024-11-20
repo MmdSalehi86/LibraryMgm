@@ -145,7 +145,7 @@ namespace LibraryMgm
                     txtName.Text = current.Cells[colName.Index].Value.ToString();
                     txtYear.Text = current.Cells[colYear.Index].Value.ToString();
                     txtPublisher.Text = current.Cells[colPublisher.Index].Value.ToString();
-                    cmbTranslator.SelectedText = current.Cells[colTranslator.Index].Value.ToString();
+                    cmbTranslator.Text = current.Cells[colTranslator.Index].Value.ToString();
                     id = current.Cells[colId.Index].Value.ToInt32();
 
                     btnCancelUpdate.Visible = true;

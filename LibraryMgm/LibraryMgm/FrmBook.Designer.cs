@@ -61,7 +61,7 @@
             this.btnAdd.Location = new System.Drawing.Point(198, 175);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(225, 47);
-            this.btnAdd.TabIndex = 12;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "ثبت";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -103,7 +103,7 @@
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPublisher.Size = new System.Drawing.Size(153, 30);
-            this.txtPublisher.TabIndex = 5;
+            this.txtPublisher.TabIndex = 2;
             // 
             // txtYear
             // 
@@ -111,7 +111,7 @@
             this.txtYear.Location = new System.Drawing.Point(240, 55);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(153, 30);
-            this.txtYear.TabIndex = 6;
+            this.txtYear.TabIndex = 1;
             // 
             // txtName
             // 
@@ -120,7 +120,7 @@
             this.txtName.Name = "txtName";
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtName.Size = new System.Drawing.Size(153, 30);
-            this.txtName.TabIndex = 7;
+            this.txtName.TabIndex = 0;
             // 
             // dgv
             // 
@@ -146,7 +146,7 @@
             this.dgv.RowTemplate.Height = 28;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(618, 241);
-            this.dgv.TabIndex = 4;
+            this.dgv.TabIndex = 6;
             this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
@@ -250,7 +250,7 @@
             this.cmbTranslator.Name = "cmbTranslator";
             this.cmbTranslator.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbTranslator.Size = new System.Drawing.Size(153, 33);
-            this.cmbTranslator.TabIndex = 13;
+            this.cmbTranslator.TabIndex = 3;
             // 
             // timerToast
             // 
@@ -264,7 +264,7 @@
             this.btnCancelUpdate.Location = new System.Drawing.Point(429, 175);
             this.btnCancelUpdate.Name = "btnCancelUpdate";
             this.btnCancelUpdate.Size = new System.Drawing.Size(112, 47);
-            this.btnCancelUpdate.TabIndex = 12;
+            this.btnCancelUpdate.TabIndex = 5;
             this.btnCancelUpdate.Text = "لغو ویرایش";
             this.btnCancelUpdate.UseVisualStyleBackColor = true;
             this.btnCancelUpdate.Visible = false;
@@ -272,6 +272,7 @@
             // 
             // FrmBook
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(618, 526);
