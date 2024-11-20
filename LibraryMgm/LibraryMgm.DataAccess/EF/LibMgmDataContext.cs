@@ -1,7 +1,9 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using LibraryMgm.Model.Entities;
 
-namespace School.DataAccess
+namespace LibraryMgm.DataAccess
 {
     public class LibMgmDataContext : DbContext
     {
@@ -10,6 +12,7 @@ namespace School.DataAccess
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Book> Books { get; set; }

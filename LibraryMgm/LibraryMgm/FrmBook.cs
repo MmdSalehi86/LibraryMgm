@@ -74,8 +74,7 @@ namespace LibraryMgm
                     Name = txtName.Text.Trim(),
                     Publisher = txtPublisher.Text.Trim(),
                     Year = txtYear.Text.TryToInt32(),
-                    Translator = new Translator()
-                    { Id = cmbTranslator.SelectedValue.ToInt32() }
+                    TranslatorId = cmbTranslator.SelectedValue.ToInt32()
                 };
                 result = bookServ.Update(book);
             }

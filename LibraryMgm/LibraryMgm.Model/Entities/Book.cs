@@ -1,5 +1,6 @@
 ﻿using LibraryMgm.Model.Validations;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryMgm.Model.Entities
 {
@@ -18,7 +19,11 @@ namespace LibraryMgm.Model.Entities
         [MaxLength(128, ErrorMessage = "نام ناشر نباید بیشتر از 128 کاراکتر باشد")]
         public string Publisher { get; set; }
 
-        [Required(ErrorMessage = "انتخاب مترجم اجباری است")]
+        //[Required()]
+        [RegularExpression(@"^\d*[1-9]\d*$", ErrorMessage = "انتخاب مترجم اجباری است")]
+        public int TranslatorId { get; set; }
+
+        [ForeignKey("TranslatorId")]
         public Translator Translator { get; set; }
     }
 }
