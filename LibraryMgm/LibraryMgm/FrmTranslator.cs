@@ -1,4 +1,6 @@
 ﻿using LibraryMgm.BLL;
+using LibraryMgm.Model.BookModel;
+using LibraryMgm.Model.Entities;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -39,7 +41,39 @@ namespace LibraryMgm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string firstName = txtFirstName.Text.Trim();
+            string lastName = txtLastName.Text.Trim();
+            string location = txtLocation.Text.Trim();
+            TranslatorService trnServ = new TranslatorService();
+            OperationResult result;
 
+            if (id.HasValue)
+            {
+                Translator trn = new Translator()
+                {
+                    Id = id.Value,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Location = location,
+                };
+                result = trnServ.Update(trn);
+            }
+            else
+            {
+                InsertTranslatorModel model = new InsertTranslatorModel()
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Location = location
+                };
+                result = trnServ.Insert(model);
+            }
+            ShowToastMsg(result);
+            if (result.ExcSucc && result.IsValid)
+            {
+                ClearInputs();
+                FillDgv();
+            }
         }
 
         private void btnCancelUpdate_Click(object sender, EventArgs e) => ClearInputs();
@@ -68,7 +102,7 @@ namespace LibraryMgm
             if (current != null)
             {
                 var msg = $"آیا از حذف {current.Cells[colFullName.Index].Value} مطمئن هستید؟";
-                var result = MessageBox.Show(msg, "Delete from book", MessageBoxButtons.YesNo,
+                var result = MessageBox.Show(msg, "Delete from translator", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question, MessageBoxDefaultButton.Button2,
                     MessageBoxOptions.RtlReading);
                 if (result == DialogResult.Yes)

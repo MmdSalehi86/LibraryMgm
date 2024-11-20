@@ -37,9 +37,6 @@
             this.labe3 = new System.Windows.Forms.Label();
             this.lblToast = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.timerToast = new System.Windows.Forms.Timer(this.components);
-            this.btnCancelUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.ColRowNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +45,9 @@
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerToast = new System.Windows.Forms.Timer(this.components);
+            this.btnCancelUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -143,39 +143,9 @@
             this.dgv.RowTemplate.Height = 24;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(501, 241);
-            this.dgv.TabIndex = 4;
+            this.dgv.TabIndex = 5;
             this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
-            // 
-            // timerToast
-            // 
-            this.timerToast.Interval = 4000;
-            this.timerToast.Tick += new System.EventHandler(this.timerToast_Tick);
-            // 
-            // btnCancelUpdate
-            // 
-            this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelUpdate.Location = new System.Drawing.Point(354, 142);
-            this.btnCancelUpdate.Name = "btnCancelUpdate";
-            this.btnCancelUpdate.Size = new System.Drawing.Size(112, 47);
-            this.btnCancelUpdate.TabIndex = 13;
-            this.btnCancelUpdate.Text = "لغو ویرایش";
-            this.btnCancelUpdate.UseVisualStyleBackColor = true;
-            this.btnCancelUpdate.Visible = false;
-            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(123, 142);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(225, 47);
-            this.btnAdd.TabIndex = 14;
-            this.btnAdd.Text = "ثبت";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // ColRowNum
             // 
@@ -245,12 +215,43 @@
             // tsmiDelete
             // 
             this.tsmiDelete.Name = "tsmiDelete";
-            this.tsmiDelete.Size = new System.Drawing.Size(210, 24);
+            this.tsmiDelete.Size = new System.Drawing.Size(110, 24);
             this.tsmiDelete.Text = "حذف";
             this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
             // 
+            // timerToast
+            // 
+            this.timerToast.Interval = 4000;
+            this.timerToast.Tick += new System.EventHandler(this.timerToast_Tick);
+            // 
+            // btnCancelUpdate
+            // 
+            this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelUpdate.Location = new System.Drawing.Point(354, 142);
+            this.btnCancelUpdate.Name = "btnCancelUpdate";
+            this.btnCancelUpdate.Size = new System.Drawing.Size(112, 47);
+            this.btnCancelUpdate.TabIndex = 4;
+            this.btnCancelUpdate.Text = "لغو ویرایش";
+            this.btnCancelUpdate.UseVisualStyleBackColor = true;
+            this.btnCancelUpdate.Visible = false;
+            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Location = new System.Drawing.Point(123, 142);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(225, 47);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "ثبت";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // FrmTranslator
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(501, 504);
@@ -266,6 +267,7 @@
             this.Controls.Add(this.txtFirstName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmTranslator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmTranslator";
             this.Load += new System.EventHandler(this.FrmTranslator_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
