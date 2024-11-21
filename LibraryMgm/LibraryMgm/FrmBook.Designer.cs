@@ -254,7 +254,7 @@
             // 
             // timerToast
             // 
-            this.timerToast.Interval = 4000;
+            this.timerToast.Interval = 3000;
             this.timerToast.Tick += new System.EventHandler(this.timerToast_Tick);
             // 
             // btnCancelUpdate
