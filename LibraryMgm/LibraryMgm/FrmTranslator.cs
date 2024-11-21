@@ -107,7 +107,7 @@ namespace LibraryMgm
                     MessageBoxOptions.RtlReading);
                 if (result == DialogResult.Yes)
                 {
-                    BookService bookServ = new BookService();
+                    TranslatorService bookServ = new TranslatorService();
                     var opResult = bookServ.Delete(current.Cells[colId.Index].Value.ToInt32());
                     ShowToastMsg(opResult);
                     if (opResult.ExcSucc)

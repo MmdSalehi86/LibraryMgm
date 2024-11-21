@@ -1,6 +1,4 @@
-﻿using System.Security.Policy;
-
-namespace LibraryMgm.BLL
+﻿namespace LibraryMgm.BLL
 {
     public class OperationResult
     {

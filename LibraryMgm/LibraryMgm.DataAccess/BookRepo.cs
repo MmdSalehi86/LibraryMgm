@@ -142,9 +142,22 @@ namespace LibraryMgm.DataAccess
 
         public bool CheckExists(string name, int? id = null)
         {
-            return ExcScalarFunc<bool>("dbo.CHECK_EXISTS_BOOK",
+            if (dbContext == null)
+            {
+                return ExcScalarFunc<bool>("dbo.CHECK_EXISTS_BOOK",
                 new SqlParameter("@Name", name),
                 new SqlParameter("@Id", id.HasValue ? (object)id.Value : DBNull.Value));
+            }
+            else
+                return CheckExistsEF(name, id);
+        }
+        public bool CheckExistsEF(string name, int? id = null)
+        {
+            var result = dbContext.Books
+                .Where(b => b.Name.Equals(name));
+            if (id.HasValue)
+                result.Where(b => b.Id != id.Value);
+            return result.Any();
         }
     }
 }

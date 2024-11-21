@@ -25,8 +25,12 @@ namespace LibraryMgm.BLL
             else
             {
                 var existsResult = CheckExists(model.FirstName, model.LastName);
-                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
+                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام مترجم تکراری بود
+                {
+                    if (!existsResult.IsValid)
+                        existsResult.ExcSucc = existsResult.IsValid;
                     return existsResult;
+                }
                 try
                 {
                     trnRepo.Insert(model);
@@ -52,8 +56,12 @@ namespace LibraryMgm.BLL
             else
             {
                 var existsResult = CheckExists(model.FirstName, model.LastName, model.Id);
-                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
+                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب مترجم بود
+                {
+                    if (!existsResult.IsValid)
+                        existsResult.ExcSucc = existsResult.IsValid;
                     return existsResult;
+                }
                 try
                 {
                     trnRepo.Update(model);

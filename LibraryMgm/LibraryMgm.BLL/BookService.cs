@@ -27,7 +27,11 @@ namespace LibraryMgm.BLL
             {
                 var existsResult = CheckExists(model.Name);
                 if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
+                {
+                    if (!existsResult.IsValid)
+                        existsResult.ExcSucc = existsResult.IsValid;
                     return existsResult;
+                }
                 else
                 {
                     try
