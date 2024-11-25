@@ -25,7 +25,6 @@ namespace LibraryMgm.DataAccess
         {
             if (dbContext == null)
             {
-                var v = Conversion.ModelToSqlParams(model);
                 ExcNonQueryProc("INSERT_BOOK",
                     Conversion.ModelToSqlParams(model));
             }
