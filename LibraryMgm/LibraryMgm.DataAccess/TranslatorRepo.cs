@@ -1,10 +1,10 @@
 ﻿using LibraryMgm.DataAccess.ADO;
+using LibraryMgm.DataAccess.EF;
 using LibraryMgm.Model;
 using LibraryMgm.Model.Conversion;
 using LibraryMgm.Model.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -25,7 +25,7 @@ namespace LibraryMgm.DataAccess
             if (dbContext == null)
             {
                 ExcNonQueryProc("INSERT_TRANSLATOR",
-                    Conversion.ModelToSqlParams(model));
+                    Conversion.ModelToSqlParams(model).ToArray());
             }
             else
                 InsertEF(model);
@@ -71,7 +71,7 @@ namespace LibraryMgm.DataAccess
             if (dbContext == null)
             {
                 ExcNonQueryProc("UPDATE_TRANSLATOR",
-                    Conversion.ModelToSqlParams(model));
+                    Conversion.ModelToSqlParams(model).ToArray());
             }
             else
                 UpdateEF(model);

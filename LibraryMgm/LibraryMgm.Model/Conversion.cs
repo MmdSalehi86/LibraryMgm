@@ -41,7 +41,8 @@ namespace LibraryMgm.Model.Conversion
             return vmList;
         }
 
-        public static SqlParameter[] ModelToSqlParams<T>(T model)
+
+        public static List<SqlParameter> ModelToSqlParams<T>(T model)
         {
             var param = new List<SqlParameter>();
             var type = model.GetType();
@@ -49,12 +50,11 @@ namespace LibraryMgm.Model.Conversion
             {
                 if (prop.Name != "ErrorMessage" && prop.Name != "IsValid")
                 {
-                    param.Add(
-                        new SqlParameter($"@{prop.Name}",
-                            prop.GetValue(model)));
+                    param.Add(new SqlParameter($"@{prop.Name}",
+                        prop.GetValue(model)));
                 }
             }
-            return param.ToArray();
+            return param;
         }
     }
 }

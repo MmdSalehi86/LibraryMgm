@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using LibraryMgm.Model.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using LibraryMgm.Model.Entities;
 
-namespace LibraryMgm.DataAccess
+namespace LibraryMgm.DataAccess.EF
 {
     public class LibMgmDataContext : DbContext
     {

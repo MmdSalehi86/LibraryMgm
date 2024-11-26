@@ -1,16 +1,15 @@
 ﻿using LibraryMgm.DataAccess.ADO;
+using LibraryMgm.DataAccess.EF;
 using LibraryMgm.Model;
 using LibraryMgm.Model.BookModel;
 using LibraryMgm.Model.Conversion;
 using LibraryMgm.Model.Entities;
-using MMDb = LibraryMgm.DataAccess.MemoryDb.LibMgmMMDb;
-using DbConfig = LibraryMgm.Model.DbConfiguration;
-
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Diagnostics.Eventing.Reader;
+using DbConfig = LibraryMgm.Model.DbConfiguration;
+using MMDb = LibraryMgm.DataAccess.MemoryDb.LibMgmMMDb;
 
 namespace LibraryMgm.DataAccess
 {
@@ -32,7 +31,7 @@ namespace LibraryMgm.DataAccess
                     InsertMM(model);
                 else
                     ExcNonQueryProc("INSERT_BOOK",
-                        Conversion.ModelToSqlParams(model));
+                        Conversion.ModelToSqlParams(model).ToArray());
             }
             else
                 InsertEF(model);
@@ -135,18 +134,16 @@ namespace LibraryMgm.DataAccess
                 else
                 {
                     var param = Conversion.ModelToSqlParams(model);
-                    for (int i = 0; i < param.Length; i++)
+                    for (int i = 0; i < param.Count; i++)
                     {
                         if (param[i].ParameterName == $"@{nameof(Translator)}")
                         {
-                            var name = $"@{nameof(Translator)}Id";
-                            var value = ((Translator)param[i].Value).Id;
-                            param[i] = new SqlParameter(name, value);
+                            param.RemoveAt(i);
                             break;
                         }
                     }
                     ExcNonQueryProc("UPDATE_BOOK",
-                        param);
+                        param.ToArray());
                 }
             }
             else
