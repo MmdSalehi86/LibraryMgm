@@ -54,6 +54,8 @@
     <Compile Include="Connections.cs" />
     <Compile Include="ADO\DbSqlCommands.cs" />
     <Compile Include="EF\LibMgmDataContext.cs" />
+    <Compile Include="MemoryDb\LibMgmMMDb.cs" />
+    <Compile Include="MemoryDb\LibMgmXmlData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TranslatorRepo.cs" />
   </ItemGroup>
