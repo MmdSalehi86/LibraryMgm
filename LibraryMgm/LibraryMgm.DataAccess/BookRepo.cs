@@ -114,13 +114,17 @@ namespace LibraryMgm.DataAccess
         }
         public List<BookVM> SelectMM()
         {
-            return MMDb.Books.Select(book => new BookVM
+            return MMDb.Books.Select((book) =>
             {
-                Id = book.Id,
-                Name = book.Name,
-                Publisher = book.Publisher,
-                Year = book.Year,
-                TranslatorName = book.Translator.FirstName + " " + book.Translator.LastName
+                var trn = MMDb.Translators.Where(t => t.Id == book.TranslatorId).Single();
+                return new BookVM
+                {
+                    Id = book.Id,
+                    Name = book.Name,
+                    Publisher = book.Publisher,
+                    Year = book.Year,
+                    TranslatorName = trn.FirstName + " " + trn.LastName
+                };
             }).ToList();
         }
 
