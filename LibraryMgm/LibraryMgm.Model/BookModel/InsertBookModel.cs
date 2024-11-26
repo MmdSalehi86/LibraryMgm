@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LibraryMgm.Model.BookModel
 {
-    public class InsertBookModel : BaseValidation
+    public sealed class InsertBookModel : BaseValidation
     {
         [Required(ErrorMessage = "نام کتاب نباید خالی باشد")]
         [MaxLength(128, ErrorMessage = "نام باید حداکثر 128 کاراکتر باشد")]

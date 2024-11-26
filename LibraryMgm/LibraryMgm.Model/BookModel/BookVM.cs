@@ -1,6 +1,6 @@
 ﻿namespace LibraryMgm.Model.BookModel
 {
-    public class BookVM
+    public sealed class BookVM
     {
         public int Id { get; set; }
 

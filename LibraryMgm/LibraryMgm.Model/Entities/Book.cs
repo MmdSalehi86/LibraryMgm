@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryMgm.Model.Entities
 {
-    public class Book : BaseValidation
+    public sealed class Book : BaseValidation
     {
         public int Id { get; set; }
 

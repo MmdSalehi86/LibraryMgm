@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LibraryMgm.Model.Entities
 {
-    public class InsertTranslatorModel : BaseValidation
+    public sealed class InsertTranslatorModel : BaseValidation
     {
         [Required(ErrorMessage = "وارد کردن نام مترجم اجباری است")]
         [MaxLength(32, ErrorMessage = "نام ناید از 32 کاراکتر بیشتر باشد")]

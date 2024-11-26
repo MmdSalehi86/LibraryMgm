@@ -11,5 +11,12 @@ namespace LibraryMgm.DataAccess.MemoryDb
 
         public static List<Book> Books { get; set; }
         public static List<Translator> Translators { get; set; }
+
+
+        public static void InitialDb()
+        {
+            Books = new List<Book>();
+            Translators = new List<Translator>();
+        }
     }
 }

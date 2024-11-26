@@ -3,18 +3,18 @@ using LibraryMgm.Model.BookModel;
 using LibraryMgm.Model.Entities;
 using System.Collections.Generic;
 
-namespace LibraryMgm.BLL
+namespace LibraryMgm.BLL.Services
 {
-    public class TranslatorService
+    public sealed class BookService
     {
-        TranslatorRepo trnRepo;
+        BookRepo bookRepo;
 
-        public TranslatorService()
+        public BookService()
         {
-            trnRepo = new TranslatorRepo();
+            bookRepo = new BookRepo();
         }
 
-        public OperationResult Insert(InsertTranslatorModel model)
+        public OperationResult Insert(InsertBookModel model)
         {
             var opResult = new OperationResult();
             if (!model.IsValid)
@@ -24,28 +24,31 @@ namespace LibraryMgm.BLL
             }
             else
             {
-                var existsResult = CheckExists(model.FirstName, model.LastName);
-                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام مترجم تکراری بود
+                var existsResult = CheckExists(model.Name);
+                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
                 {
                     if (!existsResult.IsValid)
                         existsResult.ExcSucc = existsResult.IsValid;
                     return existsResult;
                 }
-                try
+                else
                 {
-                    trnRepo.Insert(model);
-                    opResult.Message = "عملیات ثبت مترجم موفقیت آمیز بود";
-                }
-                catch
-                {
-                    opResult.ExcSucc = false;
-                    opResult.Message = "خطا در افزودن مترجم";
+                    try
+                    {
+                        bookRepo.Insert(model);
+                        opResult.Message = "عملیات ثبت کتاب موفقیت آمیز بود";
+                    }
+                    catch
+                    {
+                        opResult.ExcSucc = false;
+                        opResult.Message = "خطا در افزودن کتاب";
+                    }
                 }
             }
             return opResult;
         }
 
-        public OperationResult Update(Translator model)
+        public OperationResult Update(Book model)
         {
             var opResult = new OperationResult();
             if (!model.IsValid)
@@ -55,8 +58,8 @@ namespace LibraryMgm.BLL
             }
             else
             {
-                var existsResult = CheckExists(model.FirstName, model.LastName, model.Id);
-                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب مترجم بود
+                var existsResult = CheckExists(model.Name, model.Id);
+                if (!existsResult.IsValid || !existsResult.ExcSucc) // اگر نام کتاب تکراری بود
                 {
                     if (!existsResult.IsValid)
                         existsResult.ExcSucc = existsResult.IsValid;
@@ -64,13 +67,13 @@ namespace LibraryMgm.BLL
                 }
                 try
                 {
-                    trnRepo.Update(model);
-                    opResult.Message = "عملیات ویرایش مترجم موفقیت آمیز بود";
+                    bookRepo.Update(model);
+                    opResult.Message = "عملیات ویرایش کتاب موفقیت آمیز بود";
                 }
                 catch
                 {
                     opResult.ExcSucc = false;
-                    opResult.Message = "خطا در ویرایش مترجم";
+                    opResult.Message = "خطا در ویرایش کتاب";
                 }
             }
             return opResult;
@@ -81,40 +84,42 @@ namespace LibraryMgm.BLL
             var opResult = new OperationResult();
             try
             {
-                trnRepo.Delete(id);
-                opResult.Message = "عملیات حذف مترجم موفقیت آمیز بود";
+                bookRepo.Delete(id);
+                opResult.Message = "عملیات حذف کتاب موفقیت آمیز بود";
             }
             catch
             {
                 opResult.ExcSucc = false;
-                opResult.Message = "خطا در حذف مترجم";
+                opResult.Message = "خطا در حذف کتاب";
             }
             return opResult;
         }
 
-        public OperationResult<List<TranslatorVM>> Select()
+        public OperationResult<List<BookVM>> Select()
         {
-            var opResult = new OperationResult<List<TranslatorVM>>();
+            var opResult = new OperationResult<List<BookVM>>();
             try
             {
-                opResult.Data = trnRepo.Select();
+                opResult.Data = bookRepo.Select();
             }
             catch
             {
                 opResult.ExcSucc = false;
-                opResult.Message = "خطا در خواندن اطلاعات مترجمان";
+                opResult.Message = "خطا در خواندن اطلاعات کتاب ها";
             }
             return opResult;
         }
 
 
-        public OperationResult CheckExists(string firstName, string lastName, int? id = null)
+        public OperationResult CheckExists(string name, int? id = null)
         {
             var opResult = new OperationResult();
             try
             {
-                opResult.IsValid = !trnRepo.CheckExists(firstName, lastName, id);
-                opResult.Message = "نام مترجم تکراری است";
+                var exists = bookRepo.CheckExists(name, id);
+                opResult.IsValid = !exists;
+                if (exists)
+                    opResult.Message = "نام کتاب تکراری است";
             }
             catch
             {

@@ -42,9 +42,10 @@
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(132, 69);
             this.btnAddBook.TabIndex = 1;
+            this.btnAddBook.Tag = "book";
             this.btnAddBook.Text = "کتاب ها";
             this.btnAddBook.UseVisualStyleBackColor = true;
-            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
+            this.btnAddBook.Click += new System.EventHandler(this.btns_Click);
             // 
             // btnAddTranslator
             // 
@@ -54,9 +55,10 @@
             this.btnAddTranslator.Name = "btnAddTranslator";
             this.btnAddTranslator.Size = new System.Drawing.Size(132, 69);
             this.btnAddTranslator.TabIndex = 1;
+            this.btnAddTranslator.Tag = "trn";
             this.btnAddTranslator.Text = "مترجمان";
             this.btnAddTranslator.UseVisualStyleBackColor = true;
-            this.btnAddTranslator.Click += new System.EventHandler(this.btnAddTranslator_Click);
+            this.btnAddTranslator.Click += new System.EventHandler(this.btns_Click);
             // 
             // label1
             // 
@@ -73,7 +75,8 @@
             this.cmbORM.FormattingEnabled = true;
             this.cmbORM.Items.AddRange(new object[] {
             "ADO",
-            "EF"});
+            "EF",
+            "Memory Db"});
             this.cmbORM.Location = new System.Drawing.Point(146, 81);
             this.cmbORM.Name = "cmbORM";
             this.cmbORM.Size = new System.Drawing.Size(229, 30);
