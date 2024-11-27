@@ -133,7 +133,7 @@ namespace LibraryMgm.DataAccess
             MMDb.HasChange = true;
         }
 
-
+        
         public void Delete(int id)
         {
             if (dbContext == null)
@@ -161,7 +161,7 @@ namespace LibraryMgm.DataAccess
                 MMDb.Translators.Where(t => t.Id == id).Single());
             for (int i = 0; i < MMDb.Books.Count; i++)
                 if (MMDb.Books[i].TranslatorId == id)
-                    MMDb.Books.RemoveAt(i);
+                    MMDb.Books.RemoveAt(i--);
             MMDb.HasChange = true;
         }
 

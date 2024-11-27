@@ -69,19 +69,7 @@ namespace LibraryMgm.DataAccess
                 //TranslatorId = model.TranslatorId
             };
             dbContext.Books.Add(book);
-            try
-            {
-                dbContext.SaveChanges();
-            }
-            catch { }
-
-            foreach (var item in dbContext.GetValidationErrors())
-            {
-                foreach (var item1 in item.ValidationErrors)
-                {
-                    Console.WriteLine(item1.ErrorMessage);
-                }
-            }
+            dbContext.SaveChanges();
         }
 
 
@@ -224,7 +212,7 @@ namespace LibraryMgm.DataAccess
             var result = dbContext.Books
                 .Where(b => b.Name.Equals(name));
             if (id.HasValue)
-                result.Where(b => b.Id != id.Value);
+                result = result.Where(b => b.Id != id.Value);
             return result.Any();
         }
         public bool CheckExistsMM(string name, int? id = null)
