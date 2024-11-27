@@ -189,7 +189,7 @@ namespace LibraryMgm.DataAccess
             var result = dbContext.Translators
                 .Where(t => t.FirstName.Equals(firstName) && t.LastName.Equals(lastName));
             if (id.HasValue)
-                result.Where(t => t.Id != id.Value);
+                result = result.Where(t => t.Id != id.Value);
             return result.Any();
         }
         public bool CheckExistsMM(string firstName, string lastName, int? id = null)
