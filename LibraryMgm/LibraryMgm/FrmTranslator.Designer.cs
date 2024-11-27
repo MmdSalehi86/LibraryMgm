@@ -37,17 +37,17 @@
             this.labe3 = new System.Windows.Forms.Label();
             this.lblToast = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.timerToast = new System.Windows.Forms.Timer(this.components);
-            this.btnCancelUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.ColRowNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerToast = new System.Windows.Forms.Timer(this.components);
+            this.btnCancelUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,10 +55,10 @@
             // txtFirstName
             // 
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Location = new System.Drawing.Point(153, 24);
+            this.txtFirstName.Location = new System.Drawing.Point(123, 24);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtFirstName.Size = new System.Drawing.Size(153, 30);
+            this.txtFirstName.Size = new System.Drawing.Size(183, 30);
             this.txtFirstName.TabIndex = 0;
             // 
             // label1
@@ -74,10 +74,10 @@
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Location = new System.Drawing.Point(153, 58);
+            this.txtLastName.Location = new System.Drawing.Point(123, 58);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtLastName.Size = new System.Drawing.Size(153, 30);
+            this.txtLastName.Size = new System.Drawing.Size(183, 30);
             this.txtLastName.TabIndex = 1;
             // 
             // label2
@@ -93,10 +93,10 @@
             // txtLocation
             // 
             this.txtLocation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLocation.Location = new System.Drawing.Point(153, 92);
+            this.txtLocation.Location = new System.Drawing.Point(123, 92);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtLocation.Size = new System.Drawing.Size(153, 30);
+            this.txtLocation.Size = new System.Drawing.Size(183, 30);
             this.txtLocation.TabIndex = 2;
             // 
             // labe3
@@ -147,52 +147,6 @@
             this.dgv.TabIndex = 5;
             this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiDelete});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 28);
-            // 
-            // tsmiDelete
-            // 
-            this.tsmiDelete.Name = "tsmiDelete";
-            this.tsmiDelete.Size = new System.Drawing.Size(110, 24);
-            this.tsmiDelete.Text = "حذف";
-            this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
-            // 
-            // timerToast
-            // 
-            this.timerToast.Interval = 3000;
-            this.timerToast.Tick += new System.EventHandler(this.timerToast_Tick);
-            // 
-            // btnCancelUpdate
-            // 
-            this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelUpdate.Location = new System.Drawing.Point(354, 142);
-            this.btnCancelUpdate.Name = "btnCancelUpdate";
-            this.btnCancelUpdate.Size = new System.Drawing.Size(112, 47);
-            this.btnCancelUpdate.TabIndex = 4;
-            this.btnCancelUpdate.Text = "لغو ویرایش";
-            this.btnCancelUpdate.UseVisualStyleBackColor = true;
-            this.btnCancelUpdate.Visible = false;
-            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(123, 142);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(225, 47);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "ثبت";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // ColRowNum
             // 
@@ -249,6 +203,52 @@
             this.colLastName.ReadOnly = true;
             this.colLastName.Visible = false;
             this.colLastName.Width = 125;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDelete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 28);
+            // 
+            // tsmiDelete
+            // 
+            this.tsmiDelete.Name = "tsmiDelete";
+            this.tsmiDelete.Size = new System.Drawing.Size(110, 24);
+            this.tsmiDelete.Text = "حذف";
+            this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
+            // 
+            // timerToast
+            // 
+            this.timerToast.Interval = 3000;
+            this.timerToast.Tick += new System.EventHandler(this.timerToast_Tick);
+            // 
+            // btnCancelUpdate
+            // 
+            this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelUpdate.Location = new System.Drawing.Point(327, 141);
+            this.btnCancelUpdate.Name = "btnCancelUpdate";
+            this.btnCancelUpdate.Size = new System.Drawing.Size(112, 47);
+            this.btnCancelUpdate.TabIndex = 4;
+            this.btnCancelUpdate.Text = "لغو ویرایش";
+            this.btnCancelUpdate.UseVisualStyleBackColor = true;
+            this.btnCancelUpdate.Visible = false;
+            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Location = new System.Drawing.Point(123, 141);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(183, 47);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "ثبت";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // FrmTranslator
             // 

@@ -58,7 +58,7 @@
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(198, 175);
+            this.btnAdd.Location = new System.Drawing.Point(168, 175);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(225, 47);
             this.btnAdd.TabIndex = 4;
@@ -99,27 +99,27 @@
             // txtPublisher
             // 
             this.txtPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPublisher.Location = new System.Drawing.Point(240, 89);
+            this.txtPublisher.Location = new System.Drawing.Point(168, 89);
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPublisher.Size = new System.Drawing.Size(153, 30);
+            this.txtPublisher.Size = new System.Drawing.Size(225, 30);
             this.txtPublisher.TabIndex = 2;
             // 
             // txtYear
             // 
             this.txtYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtYear.Location = new System.Drawing.Point(240, 55);
+            this.txtYear.Location = new System.Drawing.Point(168, 55);
             this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(153, 30);
+            this.txtYear.Size = new System.Drawing.Size(225, 30);
             this.txtYear.TabIndex = 1;
             // 
             // txtName
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Location = new System.Drawing.Point(240, 21);
+            this.txtName.Location = new System.Drawing.Point(168, 21);
             this.txtName.Name = "txtName";
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtName.Size = new System.Drawing.Size(153, 30);
+            this.txtName.Size = new System.Drawing.Size(225, 30);
             this.txtName.TabIndex = 0;
             // 
             // dgv
@@ -246,10 +246,10 @@
             this.cmbTranslator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTranslator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTranslator.FormattingEnabled = true;
-            this.cmbTranslator.Location = new System.Drawing.Point(240, 128);
+            this.cmbTranslator.Location = new System.Drawing.Point(168, 128);
             this.cmbTranslator.Name = "cmbTranslator";
             this.cmbTranslator.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cmbTranslator.Size = new System.Drawing.Size(153, 33);
+            this.cmbTranslator.Size = new System.Drawing.Size(225, 33);
             this.cmbTranslator.TabIndex = 3;
             // 
             // timerToast
@@ -261,7 +261,7 @@
             // 
             this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelUpdate.Location = new System.Drawing.Point(429, 175);
+            this.btnCancelUpdate.Location = new System.Drawing.Point(406, 175);
             this.btnCancelUpdate.Name = "btnCancelUpdate";
             this.btnCancelUpdate.Size = new System.Drawing.Size(112, 47);
             this.btnCancelUpdate.TabIndex = 5;
