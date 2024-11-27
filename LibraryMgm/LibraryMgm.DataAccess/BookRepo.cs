@@ -39,8 +39,14 @@ namespace LibraryMgm.DataAccess
 
         private void InsertMM(InsertBookModel model)
         {
+            int id = 1;
+            var count = MMDb.Books.Count;
+            if (count != 0)
+                id = MMDb.Books[count - 1].Id + 1;
+
             Book book = new Book()
             {
+                Id = id,
                 Name = model.Name,
                 Publisher = model.Publisher,
                 Year = model.Year,
@@ -194,7 +200,8 @@ namespace LibraryMgm.DataAccess
         }
         private void DeleteMM(int id)
         {
-            MMDb.Books.RemoveAt(id);
+            MMDb.Books.Remove(
+                MMDb.Books.Where(b => b.Id == id).Single());
             MMDb.HasChange = true;
         }
 
