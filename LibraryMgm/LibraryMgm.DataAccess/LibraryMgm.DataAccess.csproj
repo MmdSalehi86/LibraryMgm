@@ -50,14 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookRepo.cs" />
+    <Compile Include="ADO\BookRepoAdo.cs" />
+    <Compile Include="ADO\TranslatorRepoAdo.cs" />
     <Compile Include="Connections.cs" />
     <Compile Include="ADO\DbSqlCommands.cs" />
+    <Compile Include="EF\BookRepoEF.cs" />
     <Compile Include="EF\LibMgmDataContext.cs" />
+    <Compile Include="EF\TranslatorRepoEF.cs" />
+    <Compile Include="IBookCrud.cs" />
+    <Compile Include="ITranslatorCrud.cs" />
+    <Compile Include="MemoryDb\BookRepoMM.cs" />
     <Compile Include="MemoryDb\LibMgmMMDb.cs" />
     <Compile Include="MemoryDb\LibMgmXmlData.cs" />
+    <Compile Include="MemoryDb\TranslatorRepoMM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TranslatorRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryMgm.Model\LibraryMgm.Model.csproj">
