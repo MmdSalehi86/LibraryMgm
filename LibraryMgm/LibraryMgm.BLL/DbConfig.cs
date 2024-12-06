@@ -3,7 +3,7 @@
 namespace LibraryMgm.BLL
 {
     public enum ConnectionMethods { ADO, EF, MemoryDb }
-    public sealed class DbConfiguration
+    public sealed class DbConfig
     {
         public static ConnectionMethods ConnectionMethod { get; set; }
 

@@ -1,4 +1,4 @@
-﻿using LibraryMgm.Model;
+﻿using LibraryMgm.BLL;
 using System.Windows.Forms;
 
 namespace LibraryMgm
@@ -15,16 +15,16 @@ namespace LibraryMgm
         private void cmbORM_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             if (cmbORM.SelectedIndex == 0)
-                DbConfiguration.ConnectionMethod = ConnectionMethods.ADO;
+                DbConfig.ConnectionMethod = ConnectionMethods.ADO;
             else if (cmbORM.SelectedIndex == 1)
-                DbConfiguration.ConnectionMethod = ConnectionMethods.EF;
+                DbConfig.ConnectionMethod = ConnectionMethods.EF;
             else if (cmbORM.SelectedIndex == 2)
-                DbConfiguration.ConnectionMethod = ConnectionMethods.MemoryDb;
+                DbConfig.ConnectionMethod = ConnectionMethods.MemoryDb;
         }
 
         private void btns_Click(dynamic sender, System.EventArgs e)
         {
-            BLL.DbConfiguration.InitialMemoryDb();
+            BLL.DbConfig.InitialMemoryDb();
             if (sender.Tag.ToString() == "book")
                 new FrmBook().ShowDialog();
             else if (sender.Tag.ToString() == "trn")

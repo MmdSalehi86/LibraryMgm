@@ -1,4 +1,7 @@
 ﻿using LibraryMgm.DataAccess;
+using LibraryMgm.DataAccess.ADO;
+using LibraryMgm.DataAccess.EF;
+using LibraryMgm.DataAccess.MemoryDb;
 using LibraryMgm.Model.BookModel;
 using LibraryMgm.Model.Entities;
 using System.Collections.Generic;
@@ -7,11 +10,16 @@ namespace LibraryMgm.BLL.Services
 {
     public sealed class BookService
     {
-        BookRepo bookRepo;
+        IBookCrud bookRepo;
 
         public BookService()
         {
-            bookRepo = new BookRepo();
+            if (DbConfig.ConnectionMethod == ConnectionMethods.ADO)
+                bookRepo = new BookRepoAdo();
+            else if (DbConfig.ConnectionMethod == ConnectionMethods.EF)
+                bookRepo = new BookRepoEF();
+            else
+                bookRepo = new BookRepoMM();
         }
 
         public OperationResult Insert(InsertBookModel model)

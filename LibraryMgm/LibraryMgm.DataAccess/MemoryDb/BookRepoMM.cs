@@ -6,7 +6,7 @@ using MMDb = LibraryMgm.DataAccess.MemoryDb.LibMgmMMDb;
 
 namespace LibraryMgm.DataAccess.MemoryDb
 {
-    public class BookRepoMM : IBookCRUD
+    public class BookRepoMM : IBookCrud
     {
         public void Delete(int id)
         {

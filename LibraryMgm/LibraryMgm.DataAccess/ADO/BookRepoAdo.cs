@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace LibraryMgm.DataAccess.ADO
 {
-    public class BookRepoAdo : DbSqlCommands, IBookCRUD
+    public class BookRepoAdo : DbSqlCommands, IBookCrud
     {
         public bool CheckExists(string name, int? id)
         {

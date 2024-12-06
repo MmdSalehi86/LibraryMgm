@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace LibraryMgm.DataAccess
 {
-    public interface IBookCRUD
+    public interface IBookCrud
     {
         void Insert(InsertBookModel model);
         List<BookVM> Select();

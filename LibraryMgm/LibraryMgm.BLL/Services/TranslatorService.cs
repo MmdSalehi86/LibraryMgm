@@ -1,16 +1,24 @@
 ﻿using LibraryMgm.DataAccess;
+using LibraryMgm.DataAccess.ADO;
+using LibraryMgm.DataAccess.EF;
 using LibraryMgm.Model.Entities;
 using System.Collections.Generic;
+using LibraryMgm.DataAccess.MemoryDb;
 
 namespace LibraryMgm.BLL.Services
 {
     public sealed class TranslatorService
     {
-        TranslatorRepo trnRepo;
+        ITranslatorCrud trnRepo;
 
         public TranslatorService()
         {
-            trnRepo = new TranslatorRepo();
+            if (DbConfig.ConnectionMethod == ConnectionMethods.ADO)
+                trnRepo = new TranslatorRepoAdo();
+            else if (DbConfig.ConnectionMethod == ConnectionMethods.EF)
+                trnRepo = new TranslatorRepoEF();
+            else
+                trnRepo = new TranslatorRepoMM();
         }
 
         public OperationResult Insert(InsertTranslatorModel model)

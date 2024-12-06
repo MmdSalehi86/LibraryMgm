@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace LibraryMgm.DataAccess.EF
 {
-    public class BookRepoEF : IBookCRUD
+    public class BookRepoEF : IBookCrud
     {
         LibMgmDataContext dbContext = null;
         public BookRepoEF()

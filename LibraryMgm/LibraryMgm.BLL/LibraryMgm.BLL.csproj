@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\BookService.cs" />
-    <Compile Include="DbConfiguration.cs" />
+    <Compile Include="DbConfig.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\TranslatorService.cs" />

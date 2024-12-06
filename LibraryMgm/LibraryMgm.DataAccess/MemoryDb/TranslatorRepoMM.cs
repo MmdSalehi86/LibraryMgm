@@ -5,7 +5,7 @@ using MMDb = LibraryMgm.DataAccess.MemoryDb.LibMgmMMDb;
 
 namespace LibraryMgm.DataAccess.MemoryDb
 {
-    internal class TranslatorRepoMM : ITranslatorCrud
+    public class TranslatorRepoMM : ITranslatorCrud
     {
         public bool CheckExists(string firstName, string lastName, int? id = null)
         {
